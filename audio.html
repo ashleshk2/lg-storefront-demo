@@ -673,27 +673,52 @@
 
     /* ── CTA footer banner ── */
     .audio-cta-banner {
-      background: var(--primary);
-      padding: 88px 24px;
+      background: linear-gradient(128deg,
+        var(--primary-deep) 0%,
+        var(--primary) 38%,
+        var(--brand-active) 66%,
+        var(--primary-mid) 100%
+      );
+      padding: 108px 24px;
       text-align: center;
       position: relative;
       overflow: hidden;
       contain: layout;
+      isolation: isolate;
     }
+    /* Ghost LG wordmark */
     .audio-cta-banner::before {
+      content: 'LG';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -52%);
+      font-size: clamp(240px, 36vw, 420px);
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      pointer-events: none;
+      z-index: 0;
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+    }
+    .audio-cta-banner::after {
       content: '';
       position: absolute;
       top: -40%; left: -10%;
       width: 120%; height: 180%;
-      background: radial-gradient(ellipse 60% 50% at 60% 50%, rgba(0,0,0,0.22) 0%, transparent 65%);
+      background: radial-gradient(ellipse 55% 45% at 55% 52%, rgba(255,255,255,0.1) 0%, transparent 60%);
       pointer-events: none;
+      z-index: 0;
     }
     .audio-cta-banner > * { position: relative; z-index: 1; }
     .audio-cta-banner h2 {
       color: #fff;
-      font-size: clamp(1.9rem, 3.2vw, 2.75rem);
-      letter-spacing: -0.025em;
-      margin-bottom: 14px;
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      letter-spacing: -0.028em;
+      line-height: 1.06;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.2);
     }
     .audio-cta-banner p {
       color: rgba(255,255,255,0.84);

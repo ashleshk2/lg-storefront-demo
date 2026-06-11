@@ -83,7 +83,7 @@ function initSmoothScroll() {
    ============================================================ */
 function initScrollReveal() {
   // Tag all major sections and content blocks for reveal
-  const revealTargets = [
+  var revealTargets = [
     '.section',
     '.stats-bar',
     '.cta-banner',
@@ -94,18 +94,22 @@ function initScrollReveal() {
     '.tv-feature-row',
   ];
 
-  // Individual card / tile stagger
-  const staggerTargets = [
-    { selector: '.hk-card',         delayStep: 80 },
-    { selector: '.cat-tile',        delayStep: 70 },
-    { selector: '.split-tile',      delayStep: 100 },
-    { selector: '.industry-tile',   delayStep: 80 },
-    { selector: '.stat-item',       delayStep: 80 },
-    { selector: '.trust-item',      delayStep: 60 },
-    { selector: '.lg-product-card', delayStep: 60 },
-    { selector: '.cat-tile-card',   delayStep: 70 },
-    { selector: '.use-case-tile',   delayStep: 55 },
-    { selector: '.tv-lineup-tile',  delayStep: 70 },
+  // Individual card / tile stagger — stagger resets per visual row (mod 4)
+  var staggerTargets = [
+    { selector: '.hk-card',              delayStep: 75  },
+    { selector: '.cat-tile',             delayStep: 65  },
+    { selector: '.split-tile',           delayStep: 90  },
+    { selector: '.industry-tile',        delayStep: 75  },
+    { selector: '.stat-item',            delayStep: 80  },
+    { selector: '.trust-item',           delayStep: 55  },
+    { selector: '.lg-product-card',      delayStep: 65  },
+    { selector: '.cat-tile-card',        delayStep: 65  },
+    { selector: '.use-case-tile',        delayStep: 50  },
+    { selector: '.tv-lineup-tile',       delayStep: 65  },
+    { selector: '.gaming-use-tile',      delayStep: 55  },
+    { selector: '.gaming-prod-card',     delayStep: 80  },
+    { selector: '.duo-card',             delayStep: 80  },
+    { selector: '.product-card',         delayStep: 65  },
   ];
 
   // Apply .section-fade to top-level reveal targets
@@ -117,48 +121,82 @@ function initScrollReveal() {
     });
   });
 
-  // Apply staggered delays to grid children — but ONLY if not already inside
-  // a parent that will be revealed (avoid double-animation)
+  // Apply staggered delays to grid children
+  // Delay resets at every 4 items so long grids don't have absurd delays
   staggerTargets.forEach(function(cfg) {
     document.querySelectorAll(cfg.selector).forEach(function(el, idx) {
       el.classList.add('section-fade');
-      el.style.transitionDelay = (idx % 4) * cfg.delayStep + 'ms';
+      var posInRow = idx % 4;
+      el.style.transitionDelay = (posInRow * cfg.delayStep) + 'ms';
     });
   });
 
-  // Intersection observer — threshold 0 so any pixel entering viewport triggers reveal
-  // rootMargin '0px' with no negative bottom ensures elements near/below fold are captured
-  const observer = new IntersectionObserver(
+  // Intersection observer — rootMargin pushes trigger point above fold edge
+  var observer = new IntersectionObserver(
     function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          // Once revealed, unobserve to save resources
           observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0, rootMargin: '0px 0px 100px 0px' }
+    { threshold: 0, rootMargin: '0px 0px 80px 0px' }
   );
 
   document.querySelectorAll('.section-fade').forEach(function(el) {
     observer.observe(el);
   });
 
-  // Safety fallback: after 800ms reveal any elements that still haven't fired
-  // (handles cases where observer doesn't trigger for off-screen elements on some browsers)
+  // Safety fallback: after 900ms reveal any elements that still haven't fired
   setTimeout(function() {
     document.querySelectorAll('.section-fade:not(.visible)').forEach(function(el) {
       el.classList.add('visible');
     });
-  }, 800);
+  }, 900);
 }
 
-/* Stats counter animation — animate stat numbers on reveal
+/* Stats counter animation — count up when stat enters viewport
    ============================================================ */
 function initStatCounters() {
-  document.querySelectorAll('.stat-num').forEach(function(el) {
+  var statEls = document.querySelectorAll('.stat-num');
+  if (!statEls.length) return;
+
+  var counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      var raw = el.textContent.trim();
+      // Extract leading number (handles "12", "120M+", "4.9", etc.)
+      var match = raw.match(/^(\d+\.?\d*)/);
+      if (!match) return;
+      var target = parseFloat(match[1]);
+      var suffix = raw.slice(match[0].length);
+      var isDecimal = raw.indexOf('.') !== -1;
+      var duration = 1200;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        // Ease out cubic
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = eased * target;
+        el.textContent = (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = raw; // Restore original exact value
+        }
+      }
+      requestAnimationFrame(step);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  statEls.forEach(function(el) {
     el.classList.add('section-fade');
+    counterObserver.observe(el);
   });
 }
 
@@ -232,6 +270,27 @@ function initSplitSlideIn() {
   });
 }
 
+/* CTA hover lift — scale + shadow micro-interaction
+   ============================================================ */
+function initCtaHover() {
+  var ctaSelectors = [
+    '.btn-lg-hero',
+    '.btn-brand',
+    '.lg-split-pill',
+    '.lg-split-pill-outline',
+    '.lg-spotlight-pill',
+    '.btn-gaming-primary',
+    '.btn-gaming-tv',
+    '.btn-cta-white',
+    '.duo-cta',
+  ];
+  ctaSelectors.forEach(function(sel) {
+    document.querySelectorAll(sel).forEach(function(el) {
+      el.style.transition = (el.style.transition || '') + ', transform 0.18s cubic-bezier(0.22,1,0.36,1)';
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   // Mark JS as active so CSS scroll-reveal rules engage
   document.documentElement.classList.add('js-ready');
@@ -241,6 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initHeroParallax();
   initSubnavScroll();
   initSplitSlideIn();
+  initCtaHover();
   // Second observer pass for split slide-ins (after they get their classes)
   setTimeout(function() {
     var observer = new IntersectionObserver(function(entries) {
