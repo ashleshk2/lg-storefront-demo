@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG TVs | OLED, QNED &amp; 4K Smart TVs | Amazon Brand Store</title>
+  <meta name="description" content="Shop LG OLED, QNED and 4K Smart TVs on Amazon. World's No.1 OLED for 12 consecutive years. Alpha 9 AI Processor, Dolby Vision, 144Hz gaming mode.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    /* ══════════════════════════════════════════
+       TVs PAGE — Page-scoped styles
+    ══════════════════════════════════════════ */
+
+    /* ── Hero: YouTube iframe full-bleed background ── */
+    .tv-hero {
+      position: relative;
+      width: 100%;
+      min-height: 680px;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tv-hero-video-frame {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .tv-hero-video-frame iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.8vh;
+      height: 100vh;
+      min-width: 100%;
+      min-height: 56.25vw;
+      transform: translate(-50%, -50%);
+      border: none;
+      opacity: 0.44;
+    }
+    .tv-hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        110deg,
+        rgba(0,0,0,0.97) 0%,
+        rgba(0,0,0,0.82) 36%,
+        rgba(165,0,52,0.1) 70%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+    .tv-hero-overlay::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 180px;
+      background: linear-gradient(0deg, #000 0%, transparent 100%);
+    }
+    .tv-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1280px;
+      padding: 0 clamp(20px, 5%, 72px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .tv-hero-eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.48);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .tv-hero-title {
+      font-size: clamp(3rem, 6.5vw, 5rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -0.035em;
+      margin-bottom: 18px;
+    }
+    .tv-hero-title em {
+      font-style: normal;
+      color: var(--brand-active);
+    }
+    .tv-hero-sub {
+      font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 460px;
+      margin-bottom: 44px;
+      line-height: 1.72;
+      font-weight: 400;
+    }
+    .tv-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-tv-hero {
+      padding: 15px 36px;
+      background: var(--brand-active);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 24px rgba(253,49,46,0.42);
+    }
+    .btn-tv-hero:hover { opacity: 0.88; transform: scale(1.02); text-decoration: none; }
+
+    /* ── Feature Icon Row (4-col, TV-specific) ── */
+    .tv-feature-row {
+      background: #0d0d0d;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .tv-feature-row-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4%, 64px);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .tv-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 30px 22px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.2s;
+    }
+    .tv-feat-item:last-child { border-right: none; }
+    .tv-feat-item:hover { background: rgba(165,0,52,0.06); }
+    .tv-feat-icon {
+      width: 50px; height: 50px;
+      border-radius: 8px;
+      background: rgba(165,0,52,0.16);
+      border: 1px solid rgba(165,0,52,0.28);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 14px rgba(165,0,52,0.1);
+    }
+    .tv-feat-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--brand-active);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .tv-feat-text h4 {
+      color: #fff;
+      font-size: 0.87rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
+    }
+    .tv-feat-text p {
+      color: rgba(255,255,255,0.46);
+      font-size: 0.74rem;
+      line-height: 1.45;
+    }
+
+    /* ── Split Sections (TV-specific alternating layout) ── */
+    .tv-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 540px;
+    }
+    .tv-split-media {
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+    .tv-split-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    /* Split 1: zoom-in crop — emphasizes screen center */
+    .tv-split-media.zoom-center img {
+      object-position: center center;
+      transform: scale(1.08);
+    }
+    .tv-split:hover .tv-split-media.zoom-center img { transform: scale(1.12); }
+    /* Split 3: zoom-left crop — emphasizes left edge / stand */
+    .tv-split-media.zoom-left img {
+      object-position: 30% center;
+      transform: scale(1.1);
+    }
+    .tv-split:hover .tv-split-media.zoom-left img { transform: scale(1.14); }
+    /* Default hover for non-zoomed */
+    .tv-split:hover .tv-split-media img { transform: scale(1.03); }
+
+    /* YouTube embed in split (contained frame, not full-bleed) */
+    .tv-split-video-frame {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      padding: 0;
+    }
+    .tv-split-video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .tv-split-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 6%, 80px) clamp(32px, 5%, 72px);
+    }
+    /* Dark side */
+    .tv-split-copy-dark {
+      background: var(--brand-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .tv-split-copy-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(165,0,52,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .tv-split-copy-dark > * { position: relative; z-index: 1; }
+    /* Deep dark — near-black for OLED section */
+    .tv-split-copy-deep {
+      background: #050505;
+      position: relative;
+      overflow: hidden;
+    }
+    .tv-split-copy-deep::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 80% 20%, rgba(165,0,52,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .tv-split-copy-deep > * { position: relative; z-index: 1; }
+    /* Light side */
+    .tv-split-copy-light {
+      background: var(--brand-warm-grey);
+    }
+    .tv-split-eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .tv-split-copy-dark .tv-split-eyebrow,
+    .tv-split-copy-deep .tv-split-eyebrow { color: var(--brand-active); }
+    .tv-split-copy-light .tv-split-eyebrow { color: var(--primary); }
+    .tv-split-headline {
+      font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.028em;
+      margin-bottom: 18px;
+    }
+    .tv-split-copy-dark .tv-split-headline,
+    .tv-split-copy-deep .tv-split-headline { color: #fff; }
+    .tv-split-copy-light .tv-split-headline { color: var(--brand-dark); }
+    .tv-split-body {
+      font-size: 0.93rem;
+      line-height: 1.74;
+      margin-bottom: 34px;
+      max-width: 400px;
+    }
+    .tv-split-copy-dark .tv-split-body,
+    .tv-split-copy-deep .tv-split-body { color: rgba(255,255,255,0.66); }
+    .tv-split-copy-light .tv-split-body { color: var(--text-muted); }
+    .tv-split-pill {
+      display: inline-block;
+      background: var(--brand-active);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(253,49,46,0.32);
+      align-self: flex-start;
+    }
+    .tv-split-pill:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+    .tv-split-pill-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 999px;
+      padding: 11px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .tv-split-pill-outline:hover { background: var(--primary); color: #fff; text-decoration: none; }
+
+    /* ── Top Sellers section ── */
+    .top-sellers-section {
+      background: var(--light-bg);
+      padding: var(--space-2xl) 0;
+    }
+
+    /* ── Product cards — hardened CSS, no grey double-box ── */
+    .lg-product-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.28s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.28s ease,
+                  border-color 0.22s ease;
+    }
+    .lg-product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(165,0,52,0.14);
+      border-color: rgba(165,0,52,0.2);
+    }
+    .lg-card-img {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+      /* Hardened — position:relative + overflow:hidden only — never display:flex */
+    }
+    .lg-card-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      /* Never object-fit:contain, never padding on this element */
+      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .lg-product-card:hover .lg-card-img img { transform: scale(1.05); }
+    .lg-card-body {
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .lg-card-eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .lg-card-name {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+    .lg-card-sku {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-family: monospace;
+      letter-spacing: 0.03em;
+    }
+    .lg-card-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .lg-card-stars {
+      font-size: 0.8rem;
+      color: #ff9900;
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+    .lg-card-stars span {
+      color: var(--text-muted);
+      font-size: 0.74rem;
+      margin-left: 4px;
+    }
+    .lg-card-atc {
+      background: #FFD814;
+      color: #0F1111;
+      border: 1px solid #FCD200;
+      border-radius: 8px;
+      padding: 10px 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.18s, transform 0.14s ease;
+    }
+    .lg-card-atc:hover { background: #F7CA00; transform: scale(1.01); text-decoration: none; }
+    .best-seller-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      z-index: 2;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    /* ── 4-col product grid ── */
+    .product-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* ── Full Product Grid (8+ products) ── */
+    .tv-product-grid-section {
+      background: var(--white);
+      padding: var(--space-2xl) 0;
+    }
+
+    /* ── TV Lineup Grid (4-col category grid) ── */
+    .tv-lineup-section {
+      background: var(--brand-dark);
+      padding: var(--space-2xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .tv-lineup-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(165,0,52,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .tv-lineup-section .container { position: relative; z-index: 1; }
+    .tv-lineup-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: var(--space-lg);
+    }
+    .tv-lineup-tile {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 20px 26px;
+      text-decoration: none;
+      cursor: default;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                  background 0.22s ease,
+                  box-shadow 0.25s ease;
+      min-height: 220px;
+      justify-content: flex-start;
+    }
+    .tv-lineup-tile:hover {
+      transform: scale(1.02) translateY(-2px);
+      background: rgba(165,0,52,0.12);
+      box-shadow: 0 12px 36px rgba(165,0,52,0.18);
+    }
+    .tv-lineup-icon {
+      width: 56px; height: 56px;
+      border-radius: 8px;
+      background: rgba(165,0,52,0.18);
+      border: 1px solid rgba(165,0,52,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .tv-lineup-icon svg {
+      width: 26px; height: 26px;
+      stroke: var(--brand-active);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .tv-lineup-name {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .tv-lineup-tagline {
+      font-size: 0.77rem;
+      color: rgba(255,255,255,0.54);
+      text-align: center;
+      line-height: 1.5;
+    }
+    .tv-lineup-pill {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-top: 16px;
+      letter-spacing: 0.02em;
+      transition: background 0.18s;
+    }
+    .tv-lineup-tile:hover .tv-lineup-pill { background: var(--brand-active); }
+
+    /* ── webOS Callout — dark full-width ── */
+    .webos-callout {
+      background: #050505;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+    .webos-callout::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(165,0,52,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .webos-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+      position: relative;
+      z-index: 1;
+    }
+    .webos-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 6%, 80px) clamp(32px, 5%, 72px);
+    }
+    .webos-eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-active);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .webos-headline {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+    .webos-body {
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.64);
+      line-height: 1.74;
+      margin-bottom: 34px;
+      max-width: 400px;
+    }
+    .webos-img-side {
+      position: relative;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .webos-img-side img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.85;
+      transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease;
+    }
+    .webos-callout:hover .webos-img-side img { transform: scale(1.03); opacity: 0.92; }
+    /* Brand-color glow overlay on the image side */
+    .webos-img-side::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 80%, rgba(165,0,52,0.28) 0%, transparent 65%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ── Use Case / Industry Grid ── */
+    .use-case-section {
+      background: var(--brand-warm-grey);
+      padding: var(--space-2xl) 0;
+    }
+    .use-case-grid-6 {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-top: var(--space-lg);
+    }
+    .use-case-tile {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 14px 26px;
+      text-decoration: none;
+      cursor: default;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.25s ease,
+                  background 0.22s ease;
+      min-height: 160px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .use-case-tile:hover {
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: 0 12px 36px rgba(165,0,52,0.14);
+      background: var(--white);
+    }
+    .use-case-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .use-case-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .use-case-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    /* ── CTA Banner ── */
+    .tv-cta-banner {
+      background: linear-gradient(120deg, var(--primary) 0%, var(--brand-active) 55%, var(--primary-mid) 100%);
+      padding: 88px clamp(20px, 5%, 80px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      contain: layout;
+    }
+    .tv-cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -60%; left: -20%;
+      width: 140%; height: 220%;
+      background: radial-gradient(ellipse 55% 45% at 60% 55%, rgba(255,255,255,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .tv-cta-banner > * { position: relative; z-index: 1; }
+    .tv-cta-banner h2 {
+      color: #fff;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-bottom: 14px;
+      letter-spacing: -0.025em;
+    }
+    .tv-cta-banner p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .btn-cta-white {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #fff;
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .btn-cta-white:hover { opacity: 0.9; transform: scale(1.02); text-decoration: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .tv-lineup-grid { grid-template-columns: repeat(2, 1fr); }
+      .use-case-grid-6 { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .tv-hero { min-height: 560px; }
+      .tv-feature-row-inner { grid-template-columns: repeat(2, 1fr); }
+      .tv-feat-item:nth-child(2) { border-right: none; }
+      .tv-feat-item:nth-child(1),
+      .tv-feat-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .tv-split { grid-template-columns: 1fr; min-height: auto; }
+      .tv-split-media { min-height: 320px; position: relative; }
+      .tv-split-media img { position: absolute; }
+      .tv-split-video-frame iframe { aspect-ratio: 16/9; height: auto; min-height: 260px; }
+      .tv-split-copy { padding: 48px 32px; }
+      .product-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .tv-lineup-grid { grid-template-columns: repeat(2, 1fr); }
+      .use-case-grid-6 { grid-template-columns: repeat(2, 1fr); }
+      .webos-inner { grid-template-columns: 1fr; }
+      .webos-img-side { min-height: 320px; position: relative; }
+      .webos-img-side img { position: absolute; }
+    }
+    @media (max-width: 600px) {
+      .tv-hero { min-height: 480px; }
+      .tv-feature-row-inner { grid-template-columns: 1fr; }
+      .tv-feat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .product-grid-4 { grid-template-columns: 1fr 1fr; }
+      .tv-lineup-grid { grid-template-columns: 1fr 1fr; }
+      .use-case-grid-6 { grid-template-columns: repeat(2, 1fr); }
+      .tv-split-copy { padding: 36px 20px; }
+      .webos-copy { padding: 36px 20px; }
+      .tv-cta-banner { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+
+<!-- ══════════════════════════════════════════
+     BREADCRUMB
+══════════════════════════════════════════ -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="#">Amazon</a>
+    <span aria-hidden="true">›</span>
+    <a href="#">Electronics</a>
+    <span aria-hidden="true">›</span>
+    <a href="index.html">LG</a>
+    <span aria-hidden="true">›</span>
+    <span style="color: var(--text);">TVs</span>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO — YouTube video background
+     Video: "2026 LG OLED evo AI: The Next OLED TV" (9vIUmVhM-wE)
+══════════════════════════════════════════ -->
+<section class="tv-hero section" id="tv-hero">
+  <div class="tv-hero-video-frame" aria-hidden="true">
+    <iframe
+      src="https://www.youtube.com/embed/9vIUmVhM-wE?autoplay=1&mute=1&loop=1&playlist=9vIUmVhM-wE&controls=0&showinfo=0&rel=0&playsinline=1"
+      allow="autoplay; encrypted-media"
+      loading="lazy"
+      title="2026 LG OLED evo AI TV background video"
+      tabindex="-1"
+      aria-hidden="true">
+    </iframe>
+  </div>
+  <div class="tv-hero-overlay" aria-hidden="true"></div>
+  <div class="tv-hero-content">
+    <span class="tv-hero-eyebrow">Available on Amazon</span>
+    <h1 class="tv-hero-title">
+      The Original OLED.<br><em>Eleven Years Running.</em>
+    </h1>
+    <p class="tv-hero-sub">
+      Alpha 9 Gen8 AI Processor. 100% Color Fidelity. Dolby Vision IQ.
+      Self-lit pixels, infinite contrast, perfect black — no backlight, no compromise.
+    </p>
+    <div class="tv-hero-ctas">
+      <a class="btn-tv-hero" href="#top-sellers">Shop LG TVs</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURE ICON ROW — 4 TV tech pillars
+══════════════════════════════════════════ -->
+<div class="tv-feature-row">
+  <div class="tv-feature-row-inner">
+
+    <div class="tv-feat-item">
+      <div class="tv-feat-icon" aria-hidden="true">
+        <!-- OLED / award icon -->
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="6"/>
+          <path d="M8 14l-2 7 6-3 6 3-2-7"/>
+        </svg>
+      </div>
+      <div class="tv-feat-text">
+        <h4>World's No.1 OLED</h4>
+        <p>12 consecutive years — Omdia 2013–2024</p>
+      </div>
+    </div>
+
+    <div class="tv-feat-item">
+      <div class="tv-feat-icon" aria-hidden="true">
+        <!-- AI / processor chip -->
+        <svg viewBox="0 0 24 24">
+          <rect x="7" y="7" width="10" height="10" rx="1"/>
+          <path d="M7 9H3M7 12H3M7 15H3M17 9h4M17 12h4M17 15h4M9 7V3M12 7V3M15 7V3M9 17v4M12 17v4M15 17v4"/>
+        </svg>
+      </div>
+      <div class="tv-feat-text">
+        <h4>Alpha 9 Gen8 AI</h4>
+        <p>Real-time upscaling, noise reduction, color correction</p>
+      </div>
+    </div>
+
+    <div class="tv-feat-item">
+      <div class="tv-feat-icon" aria-hidden="true">
+        <!-- Gamepad / 144Hz -->
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="6" width="20" height="14" rx="4"/>
+          <path d="M6 13h4M8 11v4"/>
+          <circle cx="15" cy="12" r="1" fill="currentColor" stroke="none"/>
+          <circle cx="17" cy="14" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="tv-feat-text">
+        <h4>144Hz Gaming Mode</h4>
+        <p>G-Sync Compatible, FreeSync Premium Pro</p>
+      </div>
+    </div>
+
+    <div class="tv-feat-item">
+      <div class="tv-feat-icon" aria-hidden="true">
+        <!-- HDR / Dolby sun rays -->
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </div>
+      <div class="tv-feat-text">
+        <h4>Dolby Vision IQ</h4>
+        <p>Filmmaker Mode + ambient light compensation</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURED SPLIT 1 — image LEFT (QNED80, zoom-center), copy RIGHT (dark)
+     "Perfect Black. Perfect Color."
+══════════════════════════════════════════ -->
+<section class="section section-fade" style="padding: 0;" id="split-1">
+  <div class="tv-split">
+
+    <div class="tv-split-media zoom-center">
+      <img
+        src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+        alt="LG QNED80 65-inch 4K Smart TV — colorful abstract art on screen"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+    <div class="tv-split-copy tv-split-copy-dark">
+      <span class="tv-split-eyebrow">LG OLED · Self-Lit Pixels</span>
+      <h2 class="tv-split-headline">Perfect Black.<br>Perfect Color.</h2>
+      <p class="tv-split-body">
+        Self-lit OLED pixels deliver infinite contrast and true black levels. 100% Color Volume for richer, more lifelike hues no LCD can match. Every pixel independently lit — no backlight bleed, no compromise.
+      </p>
+      <a class="tv-split-pill" href="tvs.html">Shop OLED TVs</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURED SPLIT 2 — copy LEFT (warm grey / light), video RIGHT (YouTube embed)
+     "AI That Sees Like You Do."
+══════════════════════════════════════════ -->
+<section class="section section-fade" style="padding: 0;" id="split-2">
+  <div class="tv-split">
+
+    <div class="tv-split-copy tv-split-copy-light">
+      <span class="tv-split-eyebrow">Alpha 9 Gen8 AI Processor</span>
+      <h2 class="tv-split-headline">AI That Sees<br>Like You Do.</h2>
+      <p class="tv-split-body">
+        The Alpha 9 Gen8 AI Processor analyzes every frame in real time — upscaling, noise-reducing, and color-correcting for a picture that's always cinema-perfect. Watch how LG OLED evo AI raises the standard.
+      </p>
+      <a class="tv-split-pill-outline" href="#top-sellers">See OLED evo AI</a>
+    </div>
+
+    <!-- YouTube embed — contained frame, 16:9 aspect ratio, not full-bleed -->
+    <div class="tv-split-media" style="background:#000;">
+      <div class="tv-split-video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/9vIUmVhM-wE?controls=1&rel=0&modestbranding=1"
+          allow="autoplay; encrypted-media"
+          loading="lazy"
+          title="2026 LG OLED evo AI: The Next OLED TV"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURED SPLIT 3 — image LEFT (QNED80, zoom-left crop), copy RIGHT (deep dark)
+     "Incredibly Rich Color from QNED."
+══════════════════════════════════════════ -->
+<section class="section section-fade" style="padding: 0;" id="split-3">
+  <div class="tv-split">
+
+    <div class="tv-split-media zoom-left">
+      <img
+        src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+        alt="LG QNED80 65-inch TV — Quantum Dot Mini LED panel detail"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+    <div class="tv-split-copy tv-split-copy-deep">
+      <span class="tv-split-eyebrow">LG QNED · Quantum Dot + Mini LED</span>
+      <h2 class="tv-split-headline">Incredibly Rich<br>Color from QNED.</h2>
+      <p class="tv-split-body">
+        Quantum Dot + Mini LED local dimming delivers dramatically richer colors and deeper contrast. All New Dynamic QNED Color, Alpha 7 Gen8 AI Processor, and the AI Magic Remote with voice control — all included.
+      </p>
+      <a class="tv-split-pill" href="#tv-product-grid">Shop QNED TVs</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TOP SELLERS — 4 product cards
+══════════════════════════════════════════ -->
+<section class="top-sellers-section section section-fade" id="top-sellers">
+  <div class="container">
+    <span class="section-eyebrow">TOP SELLERS</span>
+    <h2 style="color: var(--brand-dark); margin-bottom: var(--space-lg);">Best-Selling LG TVs on Amazon</h2>
+    <div class="product-grid-4">
+
+      <!-- Card 1: LG OLED evo AI TV C5 77" -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">#1 Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG OLED evo AI TV C5 77 inch"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">OLED evo AI · 77" · 4K</span>
+          <h3 class="lg-card-name">LG OLED evo AI TV C5 77"</h3>
+          <p class="lg-card-sku">OLED77C5PSA</p>
+          <p class="lg-card-tagline">Alpha 9 Gen8 AI, 144Hz, Dolby Vision</p>
+          <p class="lg-card-stars">★★★★★ <span>4.8</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 2: LG OLED evo AI TV C5 65" -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG OLED evo AI TV C5 65 inch"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">OLED evo AI · 65" · 4K</span>
+          <h3 class="lg-card-name">LG OLED evo AI TV C5 65"</h3>
+          <p class="lg-card-sku">OLED65C5PSA</p>
+          <p class="lg-card-tagline">100% Color Fidelity, webOS, ThinQ AI</p>
+          <p class="lg-card-stars">★★★★★ <span>4.8</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 3: LG QNED AI QNED80 65" -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG QNED AI QNED80 65 inch 4K Smart TV"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">QNED AI · 65" · 4K</span>
+          <h3 class="lg-card-name">LG QNED AI QNED80 65"</h3>
+          <p class="lg-card-sku">65QNED80ASA</p>
+          <p class="lg-card-tagline">Dynamic QNED Color, Alpha 7 Gen8</p>
+          <p class="lg-card-stars">★★★★½ <span>4.6</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 4: LG NanoCell AI NANO80 65" -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG NanoCell AI NANO80 65 inch 4K Smart TV"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">NanoCell AI · 65" · 4K</span>
+          <h3 class="lg-card-name">LG NanoCell AI NANO80 65"</h3>
+          <p class="lg-card-sku">65NANO80ASA</p>
+          <p class="lg-card-tagline">Wide viewing angle, 4K AI upscaling</p>
+          <p class="lg-card-stars">★★★★ <span>4.4</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TV PRODUCT GRID — 8+ products
+     Full LG TV lineup available on Amazon
+══════════════════════════════════════════ -->
+<section class="tv-product-grid-section section section-fade" id="tv-product-grid">
+  <div class="container">
+    <span class="section-eyebrow">FULL LINEUP</span>
+    <h2 style="color: var(--brand-dark); margin-bottom: 8px;">All LG TVs on Amazon</h2>
+    <p style="color: var(--text-muted); margin-bottom: var(--space-lg); font-size: 0.95rem;">Browse all of our TVs, from OLED to QNED to UHD — find the right one for you.</p>
+    <div class="product-grid-4">
+
+      <!-- 1 -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge">OLED EVO</span>
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG OLED evo AI TV C5 77 inch 4K"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">OLED evo · 77"</span>
+          <h3 class="lg-card-name">LG OLED evo AI C5 77"</h3>
+          <p class="lg-card-tagline">Alpha 9 Gen8, 144Hz Gaming, Dolby Vision IQ</p>
+          <p class="lg-card-stars">★★★★★ <span>4.8</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge">OLED EVO</span>
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG OLED evo AI TV C5 65 inch 4K"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">OLED evo · 65"</span>
+          <h3 class="lg-card-name">LG OLED evo AI C5 65"</h3>
+          <p class="lg-card-tagline">100% Color Fidelity, Dolby Atmos, ThinQ AI</p>
+          <p class="lg-card-stars">★★★★★ <span>4.8</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge">OLED EVO</span>
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG OLED evo AI TV C5 55 inch 4K"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">OLED evo · 55"</span>
+          <h3 class="lg-card-name">LG OLED evo AI C5 55"</h3>
+          <p class="lg-card-tagline">Self-lit pixels, webOS 25, AI Magic Remote</p>
+          <p class="lg-card-stars">★★★★★ <span>4.7</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG QNED AI QNED80 75 inch 4K Smart TV"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">QNED · 75"</span>
+          <h3 class="lg-card-name">LG QNED AI QNED80 75"</h3>
+          <p class="lg-card-tagline">Dynamic QNED Color, Alpha 7 Gen8, HDR10</p>
+          <p class="lg-card-stars">★★★★½ <span>4.5</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG QNED AI QNED80 65 inch 4K Smart TV"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">QNED · 65"</span>
+          <h3 class="lg-card-name">LG QNED AI QNED80 65"</h3>
+          <p class="lg-card-tagline">Quantum Dot + Mini LED, voice control, 4K</p>
+          <p class="lg-card-stars">★★★★½ <span>4.6</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG NanoCell AI NANO80 65 inch 4K Smart TV"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">NanoCell · 65"</span>
+          <h3 class="lg-card-name">LG NanoCell AI NANO80 65"</h3>
+          <p class="lg-card-tagline">Wide viewing angle, Nano Color, 4K AI upscaling</p>
+          <p class="lg-card-stars">★★★★ <span>4.4</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG NanoCell AI NANO80 43 inch 4K Smart TV"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">NanoCell · 43"</span>
+          <h3 class="lg-card-name">LG NanoCell AI NANO80 43"</h3>
+          <p class="lg-card-tagline">Consistent color at wide angles, webOS 25</p>
+          <p class="lg-card-stars">★★★★ <span>4.3</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG UHD AI UA84 65 inch 4K Smart TV"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">UHD · 65"</span>
+          <h3 class="lg-card-name">LG UHD AI UA84 65"</h3>
+          <p class="lg-card-tagline">Alpha 7 Gen8, 4K upscaling, Dolby Atmos</p>
+          <p class="lg-card-stars">★★★★ <span>4.3</span></p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TV LINEUP GRID — 4-col family overview
+══════════════════════════════════════════ -->
+<section class="tv-lineup-section section section-fade">
+  <div class="container">
+    <span class="section-eyebrow" style="color: rgba(255,255,255,0.42);">THE LG TV FAMILY</span>
+    <h2 style="color: #fff; margin-bottom: var(--space-lg);">Find Your Perfect Screen</h2>
+    <div class="tv-lineup-grid">
+
+      <div class="tv-lineup-tile">
+        <div class="tv-lineup-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M8 14l-2 7 6-3 6 3-2-7"/>
+          </svg>
+        </div>
+        <span class="tv-lineup-name">OLED evo</span>
+        <span class="tv-lineup-tagline">Self-lit pixels, infinite contrast, world's No.1 for 12 years</span>
+        <span class="tv-lineup-pill">Shop OLED</span>
+      </div>
+
+      <div class="tv-lineup-tile">
+        <div class="tv-lineup-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <span class="tv-lineup-name">OLED C5</span>
+        <span class="tv-lineup-tagline">Flagship OLED for home cinema — 144Hz, Dolby Vision, ThinQ AI</span>
+        <span class="tv-lineup-pill">Shop C5</span>
+      </div>
+
+      <div class="tv-lineup-tile">
+        <div class="tv-lineup-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <span class="tv-lineup-name">QNED80</span>
+        <span class="tv-lineup-tagline">Quantum Dot + Mini LED precision — dramatically richer color</span>
+        <span class="tv-lineup-pill">Shop QNED</span>
+      </div>
+
+      <div class="tv-lineup-tile">
+        <div class="tv-lineup-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+          </svg>
+        </div>
+        <span class="tv-lineup-name">NanoCell</span>
+        <span class="tv-lineup-tagline">Consistent color at every angle — 4K AI upscaling, wide FOV</span>
+        <span class="tv-lineup-pill">Shop NanoCell</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     WEBOS FEATURE CALLOUT — dark section
+     "4,000+ Apps. Endless Discovery."
+══════════════════════════════════════════ -->
+<section class="webos-callout section section-fade">
+  <div class="webos-inner">
+
+    <!-- Copy side (left) -->
+    <div class="webos-copy">
+      <span class="webos-eyebrow">webOS Smart Platform</span>
+      <h2 class="webos-headline">4,000+ Apps.<br>Endless Discovery.</h2>
+      <p class="webos-body">
+        webOS gives you access to every major streaming platform, 4,000+ free LG Channels, and a personalized home screen that learns what you love. Netflix, Prime Video, Disney+, Apple TV+ — all in one place, instantly.
+      </p>
+      <a class="tv-split-pill" href="#tv-product-grid">Explore Smart TVs</a>
+    </div>
+
+    <!-- Image side (right) — QNED80, different framing via object-position -->
+    <div class="webos-img-side">
+      <img
+        src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+        alt="LG QNED80 Smart TV running webOS with colorful content on screen"
+        loading="lazy"
+        width="1600" height="1062"
+        style="object-position: 70% center;">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     INDUSTRY / USE CASE GRID — 6 tiles
+     How LG TVs fit every lifestyle
+══════════════════════════════════════════ -->
+<section class="use-case-section section section-fade">
+  <div class="container">
+    <span class="section-eyebrow">TV FOR EVERY MOMENT</span>
+    <h2 style="color: var(--brand-dark); margin-bottom: var(--space-lg);">How LG TVs Fit Your Life</h2>
+    <div class="use-case-grid-6">
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🎬</span>
+        <span class="use-case-label">Home Cinema</span>
+        <span class="use-case-sub">OLED + Dolby Vision</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">⚽</span>
+        <span class="use-case-label">Sports</span>
+        <span class="use-case-sub">144Hz smooth motion</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🎮</span>
+        <span class="use-case-label">Gaming</span>
+        <span class="use-case-sub">G-Sync, FreeSync Pro</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">📺</span>
+        <span class="use-case-label">Streaming</span>
+        <span class="use-case-sub">4,000+ apps on webOS</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🎥</span>
+        <span class="use-case-label">4K Content</span>
+        <span class="use-case-sub">100% Color Fidelity</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🏠</span>
+        <span class="use-case-label">Smart Home Hub</span>
+        <span class="use-case-sub">ThinQ AI ecosystem</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CTA FOOTER BANNER
+══════════════════════════════════════════ -->
+<section class="tv-cta-banner section section-fade">
+  <h2>Shop the Full LG TV Lineup on Amazon.</h2>
+  <p>
+    OLED evo, QNED, NanoCell, and UHD — all available with Prime delivery.
+    World's No.1 OLED for 12 years, now on your wall.
+  </p>
+  <a class="btn-cta-white" href="#tv-product-grid">View All TVs</a>
+</section>
+
+
+<div id="site-footer"></div>
+<script src="main.js"></script>
+</body>
+</html>
