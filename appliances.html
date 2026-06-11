@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG Appliances | Smart Refrigerators &amp; Washing Machines | Amazon</title>
+  <meta name="description" content="Shop LG smart refrigerators and washing machines on Amazon. InstaView Door-in-Door, WashTower, AI Direct Drive, ThinQ Wi-Fi. Fresher, faster, smarter.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    /* ── Appliances Hero — split composition, no video ── */
+    .appl-hero {
+      position: relative;
+      width: 100%;
+      min-height: 640px;
+      background: var(--brand-dark);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    /* Left: large product image */
+    .appl-hero-media {
+      position: relative;
+      overflow: hidden;
+      background: #111;
+    }
+    .appl-hero-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.88;
+      transition: transform 8s ease;
+    }
+    .appl-hero:hover .appl-hero-media img { transform: scale(1.04); }
+    /* Glow overlay on image side */
+    .appl-hero-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 60% 80%, rgba(165,0,52,0.28) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    /* Right: copy */
+    .appl-hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(48px, 7%, 96px) clamp(36px, 6%, 80px);
+      background: var(--brand-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .appl-hero-copy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(165,0,52,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .appl-hero-copy > * { position: relative; z-index: 1; }
+    .appl-hero-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .appl-hero-title {
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .appl-hero-title span { color: var(--brand-active); }
+    .appl-hero-sub {
+      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 440px;
+      margin-bottom: 40px;
+      line-height: 1.72;
+      font-weight: 400;
+    }
+    .appl-hero-cta {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--brand-active);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 24px rgba(253,49,46,0.38);
+      align-self: flex-start;
+    }
+    .appl-hero-cta:hover {
+      opacity: 0.88;
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+
+    /* ── Feature Icon Row — 4 columns ── */
+    .appl-feature-row {
+      background: #111111;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .appl-feature-row-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4%, 64px);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .appl-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 28px 24px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.2s;
+    }
+    .appl-feat-item:last-child { border-right: none; }
+    .appl-feat-item:hover { background: rgba(255,255,255,0.03); }
+    .appl-feat-icon {
+      width: 48px; height: 48px;
+      border-radius: 8px;
+      background: rgba(165,0,52,0.18);
+      border: 1px solid rgba(165,0,52,0.3);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 14px rgba(165,0,52,0.12);
+    }
+    .appl-feat-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--brand-active);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .appl-feat-text h4 {
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
+    }
+    .appl-feat-text p {
+      color: rgba(255,255,255,0.48);
+      font-size: 0.75rem;
+      line-height: 1.45;
+    }
+
+    /* ── Section heading block ── */
+    .appl-section-heading {
+      margin-bottom: var(--space-lg);
+    }
+    .appl-section-heading .section-eyebrow {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .appl-section-heading h2 {
+      color: var(--brand-dark);
+      margin-bottom: 0;
+    }
+
+    /* ── Featured Split Sections — same as index.html pattern ── */
+    .lg-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .lg-split-media {
+      position: relative;
+      overflow: hidden;
+    }
+    .lg-split-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .lg-split:hover .lg-split-media img { transform: scale(1.03); }
+    .lg-split-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 6%, 80px) clamp(32px, 5%, 72px);
+    }
+    .lg-split-copy-dark {
+      background: var(--brand-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .lg-split-copy-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(165,0,52,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .lg-split-copy-dark > * { position: relative; z-index: 1; }
+    .lg-split-copy-light { background: var(--white); }
+    .lg-split-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .lg-split-copy-dark .lg-split-eyebrow { color: var(--brand-active); }
+    .lg-split-copy-light .lg-split-eyebrow { color: var(--primary); }
+    .lg-split-headline {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+    .lg-split-copy-dark .lg-split-headline { color: #fff; }
+    .lg-split-copy-light .lg-split-headline { color: var(--brand-dark); }
+    .lg-split-body {
+      font-size: 0.93rem;
+      line-height: 1.72;
+      margin-bottom: 32px;
+      max-width: 400px;
+    }
+    .lg-split-copy-dark .lg-split-body { color: rgba(255,255,255,0.68); }
+    .lg-split-copy-light .lg-split-body { color: var(--text-muted); }
+    .lg-split-pill {
+      display: inline-block;
+      background: var(--brand-active);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(253,49,46,0.32);
+      align-self: flex-start;
+    }
+    .lg-split-pill:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    .lg-split-pill-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 999px;
+      padding: 11px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .lg-split-pill-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* ── Product Cards (hardened — no grey double-box) ── */
+    .lg-product-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.28s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.28s ease,
+                  border-color 0.22s ease;
+    }
+    .lg-product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(165,0,52,0.14);
+      border-color: rgba(165,0,52,0.2);
+    }
+    .lg-card-img {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+      /* Never display:flex */
+    }
+    .lg-card-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      /* Never object-fit:contain, never padding */
+      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .lg-product-card:hover .lg-card-img img { transform: scale(1.05); }
+    .lg-card-body {
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .lg-card-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .lg-card-name {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 7px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+    .lg-card-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .lg-card-atc {
+      background: #FFD814;
+      color: #0F1111;
+      border: 1px solid #FCD200;
+      border-radius: 8px;
+      padding: 10px 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.18s, transform 0.14s ease;
+    }
+    .lg-card-atc:hover {
+      background: #F7CA00;
+      transform: scale(1.01);
+      text-decoration: none;
+    }
+    .best-seller-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    /* ── 4-col / 3-col product grid utility ── */
+    .product-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .product-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* ── Top Sellers light section ── */
+    .top-sellers-section {
+      background: var(--light-bg);
+      padding: var(--space-2xl) 0;
+    }
+
+    /* ── Sub-section divider with heading ── */
+    .category-divider {
+      padding: 56px 0 0;
+    }
+    .category-divider h2 {
+      color: var(--brand-dark);
+      margin-bottom: 0;
+    }
+
+    /* ── ThinQ AI Ecosystem Banner ── */
+    .thinq-banner {
+      background: #0a0a0a;
+      padding: 96px clamp(20px, 6%, 80px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      contain: layout;
+    }
+    .thinq-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(165,0,52,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .thinq-banner::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 1px;
+      background: rgba(255,255,255,0.05);
+    }
+    .thinq-banner > * { position: relative; z-index: 1; }
+    .thinq-banner .thinq-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-active);
+      margin-bottom: 24px;
+      display: block;
+    }
+    .thinq-banner h2 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+    .thinq-banner p {
+      font-size: clamp(0.98rem, 1.4vw, 1.1rem);
+      color: rgba(255,255,255,0.62);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.78;
+    }
+
+    /* ── Use Case / Who We Serve grid ── */
+    .appl-use-case-section {
+      background: var(--brand-dark);
+      padding: var(--space-2xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .appl-use-case-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(165,0,52,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .appl-use-case-section .container { position: relative; z-index: 1; }
+    .appl-use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: var(--space-lg);
+    }
+    .appl-use-case-tile {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 36px 16px 28px;
+      text-decoration: none;
+      cursor: default;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                  background 0.22s ease,
+                  box-shadow 0.25s ease;
+      min-height: 160px;
+    }
+    .appl-use-case-tile:hover {
+      transform: scale(1.04) translateY(-2px);
+      background: rgba(165,0,52,0.14);
+      box-shadow: 0 12px 36px rgba(165,0,52,0.2);
+    }
+    .appl-use-case-icon {
+      font-size: 2.4rem;
+      margin-bottom: 14px;
+      line-height: 1;
+      filter: drop-shadow(0 0 6px rgba(165,0,52,0.4));
+    }
+    .appl-use-case-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.82);
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .appl-use-case-desc {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.42);
+      text-align: center;
+      line-height: 1.4;
+      max-width: 140px;
+    }
+
+    /* ── CTA Footer Banner ── */
+    .lg-cta-banner {
+      background: linear-gradient(120deg, var(--primary) 0%, var(--brand-active) 50%, var(--primary-mid) 100%);
+      padding: 88px clamp(20px, 5%, 80px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      contain: layout;
+    }
+    .lg-cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -60%; left: -20%;
+      width: 140%; height: 220%;
+      background: radial-gradient(ellipse 55% 45% at 60% 55%, rgba(255,255,255,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .lg-cta-banner > * { position: relative; z-index: 1; }
+    .lg-cta-banner h2 {
+      color: #fff;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-bottom: 14px;
+      letter-spacing: -0.025em;
+    }
+    .lg-cta-banner p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .btn-cta-white {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #fff;
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .btn-cta-white:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .appl-use-case-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .appl-hero { grid-template-columns: 1fr; min-height: auto; }
+      .appl-hero-media { min-height: 340px; position: relative; }
+      .appl-hero-media img { position: absolute; }
+      .appl-hero-copy { padding: 48px 32px; }
+      .lg-split { grid-template-columns: 1fr; min-height: auto; }
+      .lg-split-media { min-height: 320px; position: relative; }
+      .lg-split-media img { position: absolute; }
+      .lg-split-copy { padding: 48px 32px; }
+      .appl-feature-row-inner { grid-template-columns: repeat(2, 1fr); }
+      .appl-feat-item:nth-child(2) { border-right: none; }
+      .appl-feat-item:nth-child(1), .appl-feat-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .product-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .product-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .appl-use-case-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .appl-feature-row-inner { grid-template-columns: 1fr; }
+      .appl-feat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .product-grid-4 { grid-template-columns: 1fr 1fr; }
+      .product-grid-3 { grid-template-columns: 1fr 1fr; }
+      .appl-hero-copy { padding: 36px 20px; }
+      .lg-split-copy { padding: 36px 20px; }
+      .thinq-banner { padding: 72px 20px; }
+      .lg-cta-banner { padding: 64px 20px; }
+      .lg-card-img { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+
+<!-- ══════════════════════════════════════════
+     BREADCRUMB
+══════════════════════════════════════════ -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="#">Amazon</a>
+    <span aria-hidden="true">›</span>
+    <a href="#">Electronics</a>
+    <span aria-hidden="true">›</span>
+    <a href="index.html">LG</a>
+    <span aria-hidden="true">›</span>
+    <span style="color: var(--text);">Appliances</span>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO — Split composition, no video
+     Left: InstaView fridge. Right: headline + copy
+══════════════════════════════════════════ -->
+<section class="appl-hero" id="hero" aria-label="LG Appliances hero">
+
+  <!-- Left: product image -->
+  <div class="appl-hero-media" aria-hidden="true">
+    <img
+      src="https://www.lg.com/np/images/refrigerators/md07573319/gallery/DZ1.jpg"
+      alt="LG InstaView Door-in-Door 617L refrigerator in Noble Steel with illuminated glass panel"
+      width="1600" height="1062"
+      fetchpriority="high">
+  </div>
+
+  <!-- Right: headline copy -->
+  <div class="appl-hero-copy">
+    <span class="appl-hero-eyebrow">Available on Amazon</span>
+    <h1 class="appl-hero-title">
+      Rediscover Home,<br>
+      <span>Intelligently.</span>
+    </h1>
+    <p class="appl-hero-sub">
+      ThinQ AI-powered appliances that keep fresher, clean faster,
+      and connect seamlessly. One ecosystem, every room.
+    </p>
+    <a class="appl-hero-cta" href="#refrigerators">Shop Appliances</a>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURE ICON ROW — 4 appliance pillars
+══════════════════════════════════════════ -->
+<div class="appl-feature-row" aria-label="Key appliance technologies">
+  <div class="appl-feature-row-inner">
+
+    <div class="appl-feat-item">
+      <div class="appl-feat-icon" aria-hidden="true">
+        <!-- Door / window icon — InstaView -->
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M9 3v18"/>
+          <path d="M12 8h3M12 12h3M12 16h3"/>
+        </svg>
+      </div>
+      <div class="appl-feat-text">
+        <h4>InstaView Door-in-Door</h4>
+        <p>See inside without opening</p>
+      </div>
+    </div>
+
+    <div class="appl-feat-item">
+      <div class="appl-feat-icon" aria-hidden="true">
+        <!-- Motor / rotation icon — AI Direct Drive -->
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+          <path d="M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12"/>
+        </svg>
+      </div>
+      <div class="appl-feat-text">
+        <h4>AI Direct Drive</h4>
+        <p>Learns your laundry habits</p>
+      </div>
+    </div>
+
+    <div class="appl-feat-item">
+      <div class="appl-feat-icon" aria-hidden="true">
+        <!-- Thermometer / precision icon — LinearCooling -->
+        <svg viewBox="0 0 24 24">
+          <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+        </svg>
+      </div>
+      <div class="appl-feat-text">
+        <h4>LinearCooling</h4>
+        <p>&#177;0.5&deg;C precision cooling</p>
+      </div>
+    </div>
+
+    <div class="appl-feat-item">
+      <div class="appl-feat-icon" aria-hidden="true">
+        <!-- Wi-Fi signal icon — ThinQ -->
+        <svg viewBox="0 0 24 24">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+          <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+          <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="appl-feat-text">
+        <h4>ThinQ Wi-Fi</h4>
+        <p>Control from anywhere</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     REFRIGERATORS SECTION
+══════════════════════════════════════════ -->
+<section class="section section-fade" id="refrigerators" style="padding-bottom: 0;">
+  <div class="container">
+    <div class="appl-section-heading">
+      <span class="section-eyebrow">SMART REFRIGERATORS</span>
+      <h2>Stay Fresher. Stay Smarter.</h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Fridge Split 1 — image LEFT, copy RIGHT (dark) ── -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Image: InstaView Noble Steel -->
+    <div class="lg-split-media">
+      <img
+        src="https://www.lg.com/np/images/refrigerators/md07573319/gallery/DZ1.jpg"
+        alt="LG InstaView Door-in-Door 617L refrigerator — InstaView panel illuminated, Noble Steel"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+    <!-- Copy: dark side -->
+    <div class="lg-split-copy lg-split-copy-dark">
+      <span class="lg-split-eyebrow">InstaView Door-in-Door · GS-X6172NS</span>
+      <h2 class="lg-split-headline">Over 1 Million Customers Choose LG InstaView.</h2>
+      <p class="lg-split-body">
+        Knock twice to see inside without opening the door. LinearCooling maintains
+        precise temperature within 0.5&deg;C. HygieneFRESH+ removes 99.999% of bacteria.
+      </p>
+      <a class="lg-split-pill" href="#fridge-grid">Shop Refrigerators</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── Fridge Split 2 — copy LEFT (light), image RIGHT ── -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Copy: light side (left) -->
+    <div class="lg-split-copy lg-split-copy-light">
+      <span class="lg-split-eyebrow">Side-by-Side · Smart Inverter</span>
+      <h2 class="lg-split-headline">Keep Fresher. Cool Faster. Save More.</h2>
+      <p class="lg-split-body">
+        DoorCooling+ cools the interior from door vents for rapid temperature recovery.
+        Smart Inverter Compressor delivers powerful performance with a 10-year warranty.
+      </p>
+      <a class="lg-split-pill-outline" href="#fridge-grid">Explore Range</a>
+    </div>
+
+    <!-- Image: Silver 4-door French door fridge -->
+    <div class="lg-split-media">
+      <img
+        src="https://www.lg.com/np/images/refrigerators/md07562290/gallery/DZ-1.jpg"
+        alt="LG Side-by-Side 674L refrigerator in Platinum Silver — water dispenser left door"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     REFRIGERATORS PRODUCT GRID — 6 cards
+══════════════════════════════════════════ -->
+<section class="section section-fade" id="fridge-grid" style="background: var(--light-bg);">
+  <div class="container">
+    <div class="appl-section-heading">
+      <span class="section-eyebrow">REFRIGERATORS · FULL RANGE</span>
+      <h2 style="color: var(--brand-dark);">Shop All Refrigerators</h2>
+    </div>
+    <div class="product-grid-3" style="margin-top: var(--space-lg);">
+
+      <!-- Card 1: LG InstaView 617L GS-X6172NS -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">#1 Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/refrigerators/md07573319/gallery/DZ1.jpg"
+            alt="LG InstaView Door-in-Door 617L in Noble Steel"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">617L · GS-X6172NS</span>
+          <h3 class="lg-card-name">LG InstaView Door-in-Door</h3>
+          <p class="lg-card-tagline">InstaView, LinearCooling, HygieneFRESH+</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 2: LG Side-by-Side 674L GS-L6172PZ -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/refrigerators/md07562290/gallery/DZ-1.jpg"
+            alt="LG Side-by-Side 674L in Platinum Silver"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">674L · GS-L6172PZ</span>
+          <h3 class="lg-card-name">LG Side-by-Side 674L</h3>
+          <p class="lg-card-tagline">Smart Inverter, DoorCooling+</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 3: LG Top Freezer 506L GT-M5097PZ -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/refrigerators/md07539727/GALLERY/DZ-1.jpg"
+            alt="LG Top Freezer 506L in Platinum Silver"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">506L · GT-M5097PZ</span>
+          <h3 class="lg-card-name">LG Top Freezer 506L</h3>
+          <p class="lg-card-tagline">Inverter Linear Compressor, Platinum Silver</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 4: LG One Door 471L GL-B503PZI -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/refrigerators/md07573319/gallery/DZ1.jpg"
+            alt="LG One Door 471L with Water Dispenser"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">471L · GL-B503PZI</span>
+          <h3 class="lg-card-name">LG One Door 471L</h3>
+          <p class="lg-card-tagline">Water Dispenser, HygieneFRESH+</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 5: LG Multi-Door 464L GF-B4539PZ -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/refrigerators/md07562290/gallery/DZ-1.jpg"
+            alt="LG Multi-Door 464L in Platinum Silver"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">464L · GF-B4539PZ</span>
+          <h3 class="lg-card-name">LG Multi-Door 464L</h3>
+          <p class="lg-card-tagline">Platinum Silver, Inverter Linear</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 6: LG Frost Free 260L GL-K292SLTL -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/refrigerators/md07539727/GALLERY/DZ-1.jpg"
+            alt="LG Frost Free 260L with Smart Inverter"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">260L · GL-K292SLTL</span>
+          <h3 class="lg-card-name">LG Frost Free 260L</h3>
+          <p class="lg-card-tagline">Smart Inverter, Auto Smart Connect</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     WASHING MACHINES SECTION HEADING
+══════════════════════════════════════════ -->
+<section class="section section-fade" id="washing-machines" style="padding-bottom: 0;">
+  <div class="container">
+    <div class="appl-section-heading">
+      <span class="section-eyebrow">SMARTER LAUNDRY</span>
+      <h2>Clean More. Stress Less.</h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Washer Split 3 — image LEFT, copy RIGHT (dark) ── -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Image: WashTower sage green + cream -->
+    <div class="lg-split-media">
+      <img
+        src="https://www.lg.com/np/images/washing-machines/md07573359/gallery/DZ-01.jpg"
+        alt="LG WashTower 21/16kg — sage green dryer and cream washer, stacked"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+    <!-- Copy: dark side -->
+    <div class="lg-split-copy lg-split-copy-dark">
+      <span class="lg-split-eyebrow">LG WashTower · WT2116NHEG</span>
+      <h2 class="lg-split-headline">Two Washers in One. Zero Compromise.</h2>
+      <p class="lg-split-body">
+        The LG WashTower packs a 21kg washer and 16kg dryer into one tower with a
+        single center control panel. AI Direct Drive selects the optimal wash motion
+        for your laundry.
+      </p>
+      <a class="lg-split-pill" href="#washer-grid">Shop WashTower</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── Washer Split 4 — copy LEFT (light), image RIGHT ── -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Copy: light side (left) -->
+    <div class="lg-split-copy lg-split-copy-light">
+      <span class="lg-split-eyebrow">TurboWash 360 · AI Direct Drive</span>
+      <h2 class="lg-split-headline">Done in 39 Minutes. TurboWash 360.</h2>
+      <p class="lg-split-body">
+        AI Direct Drive learns your laundry habits. TurboWash 360 cleans a full load
+        in just 39 minutes. Steam+ removes allergens and reduces wrinkles by up to 30%.
+      </p>
+      <a class="lg-split-pill-outline" href="#washer-grid">Explore Washer-Dryers</a>
+    </div>
+
+    <!-- Image: Black front-load washer-dryer -->
+    <div class="lg-split-media">
+      <img
+        src="https://www.lg.com/np/images/washing-machines/md07600981/gallery/DZ-1.jpg"
+        alt="LG Washer-Dryer 11/7kg in Black — round glass door, front-facing"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TOP SELLERS — 4 appliance cards
+══════════════════════════════════════════ -->
+<section class="top-sellers-section section section-fade" id="top-sellers">
+  <div class="container">
+    <span class="section-eyebrow">TOP SELLERS</span>
+    <h2 style="color: var(--brand-dark); margin-bottom: var(--space-lg);">Best Appliances on Amazon</h2>
+    <div class="product-grid-4">
+
+      <!-- Card 1: LG InstaView -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">#1 Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/refrigerators/md07573319/gallery/DZ1.jpg"
+            alt="LG InstaView Door-in-Door 617L refrigerator"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Refrigerator · 617L</span>
+          <h3 class="lg-card-name">LG InstaView Door-in-Door</h3>
+          <p class="lg-card-tagline">Knock twice to see inside</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 2: LG WashTower -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/washing-machines/md07573359/gallery/DZ-01.jpg"
+            alt="LG WashTower 21/16kg AI Direct Drive"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">WashTower · 21/16kg</span>
+          <h3 class="lg-card-name">LG WashTower AI DD</h3>
+          <p class="lg-card-tagline">Washer + dryer, one tower</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 3: LG Washer-Dryer Black -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">Top Rated</span>
+          <img
+            src="https://www.lg.com/np/images/washing-machines/md07600981/gallery/DZ-1.jpg"
+            alt="LG Washer-Dryer 11/7kg Black"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Washer-Dryer · 11/7kg</span>
+          <h3 class="lg-card-name">LG Washer-Dryer FV1411H2B</h3>
+          <p class="lg-card-tagline">TurboWash 39-min, Steam+</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 4: LG Side-by-Side 674L -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/refrigerators/md07562290/gallery/DZ-1.jpg"
+            alt="LG Side-by-Side 674L Platinum Silver"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Refrigerator · 674L</span>
+          <h3 class="lg-card-name">LG Side-by-Side 674L</h3>
+          <p class="lg-card-tagline">Smart Inverter, DoorCooling+</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     WASHING MACHINES PRODUCT GRID — 6 cards
+══════════════════════════════════════════ -->
+<section class="section section-fade" id="washer-grid">
+  <div class="container">
+    <div class="appl-section-heading">
+      <span class="section-eyebrow">WASHING MACHINES · FULL RANGE</span>
+      <h2 style="color: var(--brand-dark);">Shop All Washing Machines</h2>
+    </div>
+    <div class="product-grid-3" style="margin-top: var(--space-lg);">
+
+      <!-- Card 1: LG WashTower 21/16kg WT2116NHEG -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">#1 Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/washing-machines/md07573359/gallery/DZ-01.jpg"
+            alt="LG WashTower 21/16kg AI Direct Drive"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">WashTower · 21/16kg · WT2116NHEG</span>
+          <h3 class="lg-card-name">LG WashTower 21/16kg</h3>
+          <p class="lg-card-tagline">AI DD, Steam+, ThinQ Wi-Fi</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 2: LG Washer-Dryer 11/7kg FV1411H2B -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/washing-machines/md07600981/gallery/DZ-1.jpg"
+            alt="LG Washer-Dryer 11/7kg Black front-load"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Washer-Dryer · 11/7kg · FV1411H2B</span>
+          <h3 class="lg-card-name">LG Washer-Dryer 11/7kg</h3>
+          <p class="lg-card-tagline">TurboWash 39-min, 6 Motion</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 3: LG Washer-Dryer 21/12kg F2721HVRB -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/washing-machines/md07600981/gallery/DZ-1.jpg"
+            alt="LG Washer-Dryer 21/12kg in Black Steel"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Washer-Dryer · 21/12kg · F2721HVRB</span>
+          <h3 class="lg-card-name">LG Washer-Dryer 21/12kg</h3>
+          <p class="lg-card-tagline">AI DD, Black Steel, 6 Motion</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 4: LG Top Load 10kg T2310VSAB -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/washing-machines/md07601054/gallery/DZ-1.jpg"
+            alt="LG Top Load 10kg in Middle Black"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Top Load · 10kg · T2310VSAB</span>
+          <h3 class="lg-card-name">LG Top Load 10kg</h3>
+          <p class="lg-card-tagline">Smart Inverter, TurboDrum, Middle Black</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 5: LG Front Load 8/6kg FV1408H4V -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/washing-machines/md07573359/gallery/DZ-01.jpg"
+            alt="LG Front Load Washer-Dryer 8/6kg"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Front Load · 8/6kg · FV1408H4V</span>
+          <h3 class="lg-card-name">LG Front Load 8/6kg</h3>
+          <p class="lg-card-tagline">AI Direct Drive, Steam+</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 6: LG Top Load 9kg T2109VSAB -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/washing-machines/md07601054/gallery/DZ-1.jpg"
+            alt="LG Top Load 9kg Smart Inverter"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Top Load · 9kg · T2109VSAB</span>
+          <h3 class="lg-card-name">LG Top Load 9kg</h3>
+          <p class="lg-card-tagline">Smart Inverter, TurboDrum</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ThinQ AI ECOSYSTEM BANNER — full-width dark
+══════════════════════════════════════════ -->
+<section class="thinq-banner section section-fade" aria-label="ThinQ AI ecosystem">
+  <span class="thinq-eyebrow">ThinQ AI Ecosystem</span>
+  <h2>Life's Good When Everything Connects.</h2>
+  <p>
+    Your refrigerator knows your groceries. Your washer finishes before you're home.
+    ThinQ AI unifies your entire home under one smart ecosystem — controlled from
+    your phone or by voice.
+  </p>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     INDUSTRY / "WHO WE SERVE" GRID — 8 tiles
+══════════════════════════════════════════ -->
+<section class="appl-use-case-section section section-fade" aria-label="Use cases for LG appliances">
+  <div class="container">
+    <span class="section-eyebrow" style="color: rgba(255,255,255,0.45);">DESIGNED FOR EVERY LIFESTYLE</span>
+    <h2 style="color: #fff; margin-bottom: var(--space-lg);">LG Appliances, Built for How You Live</h2>
+    <div class="appl-use-case-grid">
+
+      <div class="appl-use-case-tile">
+        <span class="appl-use-case-icon" aria-hidden="true">👨‍👩‍👧‍👦</span>
+        <span class="appl-use-case-label">Families</span>
+        <p class="appl-use-case-desc">Large-capacity fridges and washers for busy households</p>
+      </div>
+
+      <div class="appl-use-case-tile">
+        <span class="appl-use-case-icon" aria-hidden="true">🏙️</span>
+        <span class="appl-use-case-label">Urban Living</span>
+        <p class="appl-use-case-desc">Compact WashTower designs for apartment spaces</p>
+      </div>
+
+      <div class="appl-use-case-tile">
+        <span class="appl-use-case-icon" aria-hidden="true">🍳</span>
+        <span class="appl-use-case-label">Home Chefs</span>
+        <p class="appl-use-case-desc">Precision cooling keeps ingredients fresher longer</p>
+      </div>
+
+      <div class="appl-use-case-tile">
+        <span class="appl-use-case-icon" aria-hidden="true">🌿</span>
+        <span class="appl-use-case-label">Eco-Conscious</span>
+        <p class="appl-use-case-desc">Inverter tech cuts energy use by up to 50%</p>
+      </div>
+
+      <div class="appl-use-case-tile">
+        <span class="appl-use-case-icon" aria-hidden="true">📱</span>
+        <span class="appl-use-case-label">Smart Home</span>
+        <p class="appl-use-case-desc">ThinQ app + voice control via Google &amp; Alexa</p>
+      </div>
+
+      <div class="appl-use-case-tile">
+        <span class="appl-use-case-icon" aria-hidden="true">🧺</span>
+        <span class="appl-use-case-label">Laundry Care</span>
+        <p class="appl-use-case-desc">Steam+ eliminates allergens and wrinkles</p>
+      </div>
+
+      <div class="appl-use-case-tile">
+        <span class="appl-use-case-icon" aria-hidden="true">🏠</span>
+        <span class="appl-use-case-label">New Homeowners</span>
+        <p class="appl-use-case-desc">Complete appliance ecosystem from one trusted brand</p>
+      </div>
+
+      <div class="appl-use-case-tile">
+        <span class="appl-use-case-icon" aria-hidden="true">⚡</span>
+        <span class="appl-use-case-label">Fast Living</span>
+        <p class="appl-use-case-desc">TurboWash 39-min full loads, DoorCooling+ rapid chill</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CTA FOOTER BANNER
+══════════════════════════════════════════ -->
+<section class="lg-cta-banner section section-fade" aria-label="Call to action">
+  <h2>Shop the Complete LG Appliances Collection</h2>
+  <p>
+    Refrigerators, washers, dryers, and the WashTower — all available with Prime delivery.
+    Life's Good starts in your home.
+  </p>
+  <a class="btn-cta-white" href="#refrigerators">Shop All Appliances</a>
+</section>
+
+
+<div id="site-footer"></div>
+<script src="main.js"></script>
+</body>
+</html>
