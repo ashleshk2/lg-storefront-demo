@@ -33,6 +33,8 @@
       display: flex;
       align-items: center;
     }
+    /* Override .section padding so hero controls its own spacing */
+    .gaming-hero.section { padding: 0; }
 
     /* Animated background: radial red glow + scan-lines */
     .gaming-hero::before {
@@ -275,18 +277,23 @@
     /* CSS screen-glow mock display */
     .screen-mock-wrap {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 40px;
       background: var(--gaming-black);
       position: relative;
-      overflow: hidden;
+      z-index: 1;
+      /* overflow must NOT be hidden — the aspect-ratio mock gets clipped otherwise */
+      overflow: visible;
     }
     .screen-mock-wrap::before {
       content: '';
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(253,49,46,0.15) 0%, transparent 65%);
+      z-index: 0;
+      pointer-events: none;
     }
     .screen-mock {
       position: relative;
@@ -310,6 +317,7 @@
       background:
         radial-gradient(ellipse 80% 60% at 50% 40%, rgba(253,49,46,0.18) 0%, transparent 55%),
         repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(253,49,46,0.03) 4px, rgba(253,49,46,0.03) 5px);
+      z-index: 0;
     }
     .screen-mock-content {
       position: absolute;
@@ -319,6 +327,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      z-index: 2;
+      padding: 16px;
     }
     .screen-mock-stat {
       font-size: clamp(2.4rem, 5vw, 3.5rem);
@@ -1072,7 +1082,6 @@
               <span class="gaming-prod-tag">G-Sync Compatible</span>
               <span class="gaming-prod-tag">HDR10</span>
             </div>
-            <span class="gaming-prod-atc">Add to Cart</span>
           </div>
         </div>
 
@@ -1100,7 +1109,6 @@
               <span class="gaming-prod-tag">32" QHD</span>
               <span class="gaming-prod-tag">HDR10</span>
             </div>
-            <span class="gaming-prod-atc">Add to Cart</span>
           </div>
         </div>
 
