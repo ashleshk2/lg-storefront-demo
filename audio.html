@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG Soundbars | Meridian Audio, Dolby Atmos | Amazon Brand Store</title>
+  <meta name="description" content="Shop LG soundbars on Amazon. Meridian Audio, Dolby Atmos, WOWCast wireless TV connection. From SC9S flagship to S20A entry — cinema sound for every room.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    /* ══════════════════════════════════════════
+       AUDIO PAGE — Page-scoped styles
+    ══════════════════════════════════════════ */
+
+    /* ── Hero: split layout (image left, copy right) ── */
+    .audio-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 640px;
+      background: var(--brand-dark);
+      overflow: hidden;
+    }
+    .audio-hero-media {
+      position: relative;
+      overflow: hidden;
+      background: #0d0d0d;
+    }
+    .audio-hero-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 8s ease;
+    }
+    .audio-hero:hover .audio-hero-media img { transform: scale(1.04); }
+    .audio-hero-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 60%, var(--brand-dark) 100%);
+      pointer-events: none;
+    }
+    .audio-hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(48px, 7%, 96px) clamp(32px, 6%, 80px) clamp(48px, 7%, 96px) clamp(24px, 4%, 56px);
+      background: var(--brand-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .audio-hero-copy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 80% 30%, rgba(165,0,52,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .audio-hero-copy > * { position: relative; z-index: 1; }
+    .audio-hero-eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.48);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .audio-hero-title {
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.02;
+      letter-spacing: -0.032em;
+      margin-bottom: 20px;
+    }
+    .audio-hero-title em {
+      font-style: normal;
+      color: var(--brand-active);
+    }
+    .audio-hero-sub {
+      font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+      color: rgba(255,255,255,0.68);
+      max-width: 420px;
+      margin-bottom: 44px;
+      line-height: 1.74;
+      font-weight: 400;
+    }
+    .audio-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-audio-hero {
+      padding: 15px 36px;
+      background: var(--brand-active);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 24px rgba(253,49,46,0.4);
+    }
+    .btn-audio-hero:hover { opacity: 0.88; transform: scale(1.02); text-decoration: none; }
+
+    /* ── Feature Icon Row (4-col, audio-specific) ── */
+    .audio-feature-row {
+      background: #0d0d0d;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .audio-feature-row-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4%, 64px);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .audio-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 30px 22px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.2s;
+    }
+    .audio-feat-item:last-child { border-right: none; }
+    .audio-feat-item:hover { background: rgba(165,0,52,0.06); }
+    .audio-feat-icon {
+      width: 50px; height: 50px;
+      border-radius: 8px;
+      background: rgba(165,0,52,0.16);
+      border: 1px solid rgba(165,0,52,0.28);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 14px rgba(165,0,52,0.1);
+    }
+    .audio-feat-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--brand-active);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .audio-feat-text h4 {
+      color: #fff;
+      font-size: 0.87rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
+    }
+    .audio-feat-text p {
+      color: rgba(255,255,255,0.46);
+      font-size: 0.74rem;
+      line-height: 1.45;
+    }
+
+    /* ── Split Sections (audio-specific alternating layout) ── */
+    .audio-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .audio-split-media {
+      position: relative;
+      overflow: hidden;
+      background: #0d0d0d;
+    }
+    .audio-split-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .audio-split:hover .audio-split-media img { transform: scale(1.04); }
+
+    .audio-split-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 6%, 80px) clamp(32px, 5%, 72px);
+    }
+    /* Dark copy side */
+    .audio-split-copy-dark {
+      background: var(--brand-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .audio-split-copy-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(165,0,52,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .audio-split-copy-dark > * { position: relative; z-index: 1; }
+    /* Deep dark */
+    .audio-split-copy-deep {
+      background: #060606;
+      position: relative;
+      overflow: hidden;
+    }
+    .audio-split-copy-deep::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 80% 20%, rgba(165,0,52,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .audio-split-copy-deep > * { position: relative; z-index: 1; }
+    /* Light copy side */
+    .audio-split-copy-light {
+      background: var(--brand-warm-grey);
+    }
+    .audio-split-eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .audio-split-copy-dark .audio-split-eyebrow,
+    .audio-split-copy-deep .audio-split-eyebrow { color: var(--brand-active); }
+    .audio-split-copy-light .audio-split-eyebrow { color: var(--primary); }
+    .audio-split-headline {
+      font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.028em;
+      margin-bottom: 18px;
+    }
+    .audio-split-copy-dark .audio-split-headline,
+    .audio-split-copy-deep .audio-split-headline { color: #fff; }
+    .audio-split-copy-light .audio-split-headline { color: var(--brand-dark); }
+    .audio-split-body {
+      font-size: 0.93rem;
+      line-height: 1.74;
+      margin-bottom: 34px;
+      max-width: 400px;
+    }
+    .audio-split-copy-dark .audio-split-body,
+    .audio-split-copy-deep .audio-split-body { color: rgba(255,255,255,0.66); }
+    .audio-split-copy-light .audio-split-body { color: var(--text-muted); }
+    .audio-split-pill {
+      display: inline-block;
+      background: var(--brand-active);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(253,49,46,0.32);
+      align-self: flex-start;
+    }
+    .audio-split-pill:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+    .audio-split-pill-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 999px;
+      padding: 11px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .audio-split-pill-outline:hover { background: var(--primary); color: #fff; text-decoration: none; }
+
+    /* Dark media side: brand glow behind product */
+    .audio-split-media-dark {
+      background: #0a0a0a;
+      position: relative;
+      overflow: hidden;
+    }
+    .audio-split-media-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(165,0,52,0.28) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .audio-split-media-dark img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 32px;
+      display: block;
+      z-index: 2;
+      transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .audio-split:hover .audio-split-media-dark img { transform: scale(1.03); }
+
+    /* ── WOWCast split left panel — abstract wave background ── */
+    .audio-wowcast-wave-panel {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--brand-warm-grey) 0%, #ede5db 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 520px;
+    }
+
+    /* ── Product cards — hardened CSS, no grey double-box ── */
+    .lg-product-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.28s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.28s ease,
+                  border-color 0.22s ease;
+    }
+    .lg-product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(165,0,52,0.14);
+      border-color: rgba(165,0,52,0.2);
+    }
+    /* Hardened image zone — position:relative + overflow:hidden only, never display:flex */
+    .lg-card-img {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+    }
+    .lg-card-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .lg-product-card:hover .lg-card-img img { transform: scale(1.05); }
+    .lg-card-body {
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .lg-card-eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .lg-card-name {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+    .lg-card-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .lg-card-stars {
+      font-size: 0.8rem;
+      color: #f5a623;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .lg-card-stars span {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+    .lg-card-buy {
+      background: #FFD814;
+      color: #0F1111;
+      border: 1px solid #FCD200;
+      border-radius: 8px;
+      padding: 10px 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.18s, transform 0.15s;
+      text-decoration: none;
+    }
+    .lg-card-buy:hover { background: #F7CA00; transform: scale(1.01); text-decoration: none; }
+
+    .product-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    /* ── Spec Comparison Table ── */
+    .spec-table-wrap {
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: var(--white);
+    }
+    .spec-table thead tr {
+      background: var(--brand-dark);
+    }
+    .spec-table thead th {
+      padding: 18px 20px;
+      text-align: left;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .spec-table thead th:first-child {
+      border-radius: 16px 0 0 0;
+    }
+    .spec-table thead th:last-child {
+      border-radius: 0 16px 0 0;
+    }
+    .spec-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .spec-table tbody tr:last-child { border-bottom: none; }
+    .spec-table tbody tr:hover { background: var(--light-bg); }
+    .spec-table tbody td {
+      padding: 15px 20px;
+      color: var(--text-muted);
+      vertical-align: middle;
+    }
+    .spec-table tbody td:first-child {
+      font-weight: 700;
+      color: var(--text);
+    }
+    .spec-check {
+      display: inline-block;
+      width: 20px; height: 20px;
+      background: rgba(165,0,52,0.1);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 20px;
+      font-size: 0.75rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .spec-dash {
+      color: #ccc;
+      font-size: 1rem;
+    }
+
+    /* ── Use / Industry grid (6 tiles) ── */
+    .audio-use-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .audio-use-tile {
+      background: var(--brand-dark-tint);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      min-height: 200px;
+      display: flex;
+      align-items: flex-end;
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .audio-use-tile:hover {
+      transform: scale(1.025) translateY(-2px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    }
+    /* Abstract wave background per tile via css gradient patterns */
+    .audio-use-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      transition: opacity 0.3s ease;
+    }
+    .audio-use-tile-cinema::before {
+      background: linear-gradient(135deg, #1a0008 0%, #3a000e 50%, #1a0008 100%);
+    }
+    .audio-use-tile-music::before {
+      background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
+    }
+    .audio-use-tile-sports::before {
+      background: linear-gradient(135deg, #0a1a0a 0%, #0f2a10 50%, #0a1a0a 100%);
+    }
+    .audio-use-tile-gaming::before {
+      background: linear-gradient(135deg, #0d001a 0%, #1a0030 50%, #0d001a 100%);
+    }
+    .audio-use-tile-tv::before {
+      background: linear-gradient(135deg, #001a1a 0%, #002a30 50%, #001a1a 100%);
+    }
+    .audio-use-tile-party::before {
+      background: linear-gradient(135deg, #1a0a00 0%, #2e1500 50%, #1a0a00 100%);
+    }
+    /* Wave decoration */
+    .audio-use-tile::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: -10%;
+      width: 120%;
+      height: 60%;
+      z-index: 0;
+      opacity: 0.12;
+      border-radius: 50%;
+      transition: opacity 0.3s ease;
+    }
+    .audio-use-tile-cinema::after { background: radial-gradient(ellipse, rgba(165,0,52,1) 0%, transparent 70%); }
+    .audio-use-tile-music::after { background: radial-gradient(ellipse, rgba(80,60,200,1) 0%, transparent 70%); }
+    .audio-use-tile-sports::after { background: radial-gradient(ellipse, rgba(0,160,60,1) 0%, transparent 70%); }
+    .audio-use-tile-gaming::after { background: radial-gradient(ellipse, rgba(120,0,220,1) 0%, transparent 70%); }
+    .audio-use-tile-tv::after { background: radial-gradient(ellipse, rgba(0,140,180,1) 0%, transparent 70%); }
+    .audio-use-tile-party::after { background: radial-gradient(ellipse, rgba(220,120,0,1) 0%, transparent 70%); }
+    .audio-use-tile:hover::after { opacity: 0.22; }
+    .audio-use-tile-content {
+      position: relative;
+      z-index: 1;
+      padding: 24px 22px;
+      width: 100%;
+    }
+    .audio-use-tile-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      display: block;
+      line-height: 1;
+    }
+    .audio-use-tile-content h4 {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+    .audio-use-tile-content p {
+      color: rgba(255,255,255,0.58);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+    .audio-use-pill {
+      display: inline-block;
+      margin-top: 12px;
+      background: rgba(165,0,52,0.75);
+      color: #fff;
+      border-radius: 999px;
+      padding: 5px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Cross-sell "Built for LG TVs" section ── */
+    .crosssell-section {
+      background: var(--brand-dark);
+      position: relative;
+      overflow: hidden;
+      padding: var(--space-2xl) 0;
+    }
+    .crosssell-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(165,0,52,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .crosssell-section > * { position: relative; z-index: 1; }
+    .crosssell-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5%, 64px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .crosssell-copy .eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brand-active);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .crosssell-copy h2 {
+      color: #fff;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -0.028em;
+      margin-bottom: 20px;
+    }
+    .crosssell-copy p {
+      color: rgba(255,255,255,0.66);
+      font-size: 0.95rem;
+      line-height: 1.76;
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+    .crosssell-visual {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0a0a0a;
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    .crosssell-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 60%, rgba(165,0,52,0.35) 0%, transparent 70%);
+      z-index: 0;
+    }
+    .crosssell-visual img {
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      object-fit: contain;
+      padding: 20px;
+      display: block;
+    }
+    .crosssell-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .crosssell-badge {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── CTA footer banner ── */
+    .audio-cta-banner {
+      background: var(--primary);
+      padding: 88px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      contain: layout;
+    }
+    .audio-cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -40%; left: -10%;
+      width: 120%; height: 180%;
+      background: radial-gradient(ellipse 60% 50% at 60% 50%, rgba(0,0,0,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .audio-cta-banner > * { position: relative; z-index: 1; }
+    .audio-cta-banner h2 {
+      color: #fff;
+      font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+    .audio-cta-banner p {
+      color: rgba(255,255,255,0.84);
+      font-size: 1.05rem;
+      margin-bottom: 36px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .btn-cta-white {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #fff;
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .btn-cta-white:hover { opacity: 0.9; transform: scale(1.02); text-decoration: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .audio-use-grid { grid-template-columns: repeat(3, 1fr); }
+      .product-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .audio-hero { grid-template-columns: 1fr; min-height: auto; }
+      .audio-hero-media { min-height: 340px; position: relative; }
+      .audio-hero-media img { position: absolute; }
+      .audio-hero-copy { padding: 48px 32px; }
+      .audio-feature-row-inner { grid-template-columns: repeat(2, 1fr); }
+      .audio-feat-item:nth-child(2) { border-right: none; }
+      .audio-feat-item:nth-child(1),
+      .audio-feat-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .audio-split { grid-template-columns: 1fr; min-height: auto; }
+      .audio-split-media { min-height: 300px; position: relative; }
+      .audio-split-media img { position: absolute; }
+      .audio-split-media-dark { min-height: 300px; }
+      .audio-split-copy { padding: 48px 32px; }
+      .product-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .audio-use-grid { grid-template-columns: repeat(2, 1fr); }
+      .crosssell-inner { grid-template-columns: 1fr; gap: 40px; }
+      .crosssell-visual { min-height: 260px; }
+    }
+    @media (max-width: 600px) {
+      .audio-hero { min-height: auto; }
+      .audio-hero-copy { padding: 40px 20px; }
+      .audio-feature-row-inner { grid-template-columns: 1fr; }
+      .audio-feat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .product-grid-4 { grid-template-columns: 1fr 1fr; }
+      .audio-use-grid { grid-template-columns: repeat(2, 1fr); }
+      .audio-split-copy { padding: 36px 20px; }
+      .audio-cta-banner { padding: 64px 20px; }
+      .audio-cta-banner h2 { font-size: 1.75rem; }
+      .spec-table { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+
+<!-- ══════════════════════════════════════════
+     BREADCRUMB
+══════════════════════════════════════════ -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="#">Amazon</a>
+    <span aria-hidden="true">›</span>
+    <a href="#">Electronics</a>
+    <span aria-hidden="true">›</span>
+    <a href="index.html">LG</a>
+    <span aria-hidden="true">›</span>
+    <span style="color: var(--text);">Audio</span>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO — Split: image left / copy right
+     Image: SC9S soundbar + wireless subwoofer
+══════════════════════════════════════════ -->
+<section class="audio-hero section" id="audio-hero">
+  <div class="audio-hero-media">
+    <img
+      src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+      alt="LG SC9S Soundbar with wireless subwoofer, black, on white background"
+      loading="eager"
+    >
+  </div>
+  <div class="audio-hero-copy">
+    <span class="audio-hero-eyebrow">Available on Amazon</span>
+    <h1 class="audio-hero-title">
+      Cinema Sound.<br><em>Living Room Scale.</em>
+    </h1>
+    <p class="audio-hero-sub">
+      LG soundbars with Meridian Audio, Dolby Atmos, and WOWCast wireless connection to your LG TV. Every film, track, and match — exactly as the creators intended.
+    </p>
+    <div class="audio-hero-ctas">
+      <a href="#soundbar-grid" class="btn-audio-hero">Shop Soundbars</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURE ICON ROW (dark, 4-col)
+══════════════════════════════════════════ -->
+<div class="audio-feature-row section" style="padding: 0;">
+  <div class="audio-feature-row-inner">
+
+    <div class="audio-feat-item">
+      <div class="audio-feat-icon" aria-hidden="true">
+        <!-- Musical note / premium audio icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M9 18V5l12-2v13"/>
+          <circle cx="6" cy="18" r="3"/>
+          <circle cx="18" cy="16" r="3"/>
+        </svg>
+      </div>
+      <div class="audio-feat-text">
+        <h4>Meridian Audio</h4>
+        <p>Premium co-engineered sound from Britain's finest</p>
+      </div>
+    </div>
+
+    <div class="audio-feat-item">
+      <div class="audio-feat-icon" aria-hidden="true">
+        <!-- 3D surround / sphere icon -->
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"/>
+          <ellipse cx="12" cy="12" rx="4" ry="9"/>
+          <path d="M3 12h18"/>
+        </svg>
+      </div>
+      <div class="audio-feat-text">
+        <h4>Dolby Atmos</h4>
+        <p>Immersive 3D audio — above, below, around</p>
+      </div>
+    </div>
+
+    <div class="audio-feat-item">
+      <div class="audio-feat-icon" aria-hidden="true">
+        <!-- Wireless / signal icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+          <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+          <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="audio-feat-text">
+        <h4>WOWCast</h4>
+        <p>Wireless LG TV connection — no cable needed</p>
+      </div>
+    </div>
+
+    <div class="audio-feat-item">
+      <div class="audio-feat-icon" aria-hidden="true">
+        <!-- AI / brain / waveform icon -->
+        <svg viewBox="0 0 24 24">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </div>
+      <div class="audio-feat-text">
+        <h4>AI Sound PRO</h4>
+        <p>Adaptive content EQ — movies, music, sports, voice</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SPLIT SECTION 1
+     Image LEFT / Dark copy RIGHT
+     Focus: Meridian Audio
+══════════════════════════════════════════ -->
+<section class="section" style="padding: 0;" id="meridian">
+  <div class="audio-split">
+
+    <div class="audio-split-media-dark">
+      <img
+        src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+        alt="LG SC9S Soundbar with Meridian Audio technology"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="audio-split-copy audio-split-copy-dark">
+      <span class="audio-split-eyebrow">Flagship Audio</span>
+      <h2 class="audio-split-headline">Meridian Audio.<br>Crafted for Perfection.</h2>
+      <p class="audio-split-body">
+        Developed in partnership with Meridian Audio, Britain's most prestigious audio engineering company, LG soundbars deliver studio-reference clarity and spatial imaging that redefines home listening.
+      </p>
+      <a href="#soundbar-grid" class="audio-split-pill">Shop SC9S</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SPLIT SECTION 2
+     Dark copy LEFT / Image RIGHT
+     Focus: Dolby Atmos + WOW Orchestra
+══════════════════════════════════════════ -->
+<section class="section" style="padding: 0;" id="dolby-atmos">
+  <div class="audio-split">
+
+    <div class="audio-split-copy audio-split-copy-deep">
+      <span class="audio-split-eyebrow">Immersive Sound</span>
+      <h2 class="audio-split-headline">Dolby Atmos.<br>Sound That Moves Around You.</h2>
+      <p class="audio-split-body">
+        3D audio from above, below, and beside you — Dolby Atmos places every sound precisely in three-dimensional space. Paired with WOW Orchestra, your LG TV speakers and soundbar combine for total room coverage.
+      </p>
+      <a href="#soundbar-grid" class="audio-split-pill">See Features</a>
+    </div>
+
+    <div class="audio-split-media-dark">
+      <img
+        src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+        alt="LG Soundbar SC9S demonstrating Dolby Atmos surround sound"
+        loading="lazy"
+      >
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SPLIT SECTION 3
+     Light / warm-grey copy RIGHT — abstract wave visual LEFT
+     Focus: WOWCast + AI Sound PRO
+══════════════════════════════════════════ -->
+<section class="section" style="padding: 0;" id="wowcast">
+  <div class="audio-split">
+
+    <!-- Abstract wave visualization (no product image reuse) -->
+    <div class="audio-wowcast-wave-panel">
+      <!-- SVG wave data-visualization art — no text, purely decorative -->
+      <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="width:90%; max-width:520px; opacity:0.75;" aria-hidden="true">
+        <defs>
+          <linearGradient id="wg1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#A50034" stop-opacity="0.6"/>
+            <stop offset="50%" stop-color="#c4003e" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#A50034" stop-opacity="0.4"/>
+          </linearGradient>
+          <linearGradient id="wg2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#A50034" stop-opacity="0.25"/>
+            <stop offset="50%" stop-color="#FD312E" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#A50034" stop-opacity="0.15"/>
+          </linearGradient>
+        </defs>
+        <!-- Outer glow rings -->
+        <ellipse cx="300" cy="200" rx="240" ry="160" fill="none" stroke="url(#wg2)" stroke-width="1"/>
+        <ellipse cx="300" cy="200" rx="190" ry="125" fill="none" stroke="url(#wg2)" stroke-width="1"/>
+        <!-- Audio frequency bars (center radiating) -->
+        <g stroke="url(#wg1)" stroke-linecap="round" stroke-width="3">
+          <line x1="300" y1="110" x2="300" y2="290"/>
+          <line x1="270" y1="118" x2="270" y2="282"/>
+          <line x1="240" y1="130" x2="240" y2="270"/>
+          <line x1="210" y1="145" x2="210" y2="255"/>
+          <line x1="180" y1="158" x2="180" y2="242"/>
+          <line x1="150" y1="168" x2="150" y2="232"/>
+          <line x1="120" y1="176" x2="120" y2="224"/>
+          <line x1="330" y1="118" x2="330" y2="282"/>
+          <line x1="360" y1="130" x2="360" y2="270"/>
+          <line x1="390" y1="145" x2="390" y2="255"/>
+          <line x1="420" y1="158" x2="420" y2="242"/>
+          <line x1="450" y1="168" x2="450" y2="232"/>
+          <line x1="480" y1="176" x2="480" y2="224"/>
+        </g>
+        <!-- Center circle accent -->
+        <circle cx="300" cy="200" r="28" fill="none" stroke="url(#wg1)" stroke-width="2"/>
+        <circle cx="300" cy="200" r="8" fill="#A50034" opacity="0.7"/>
+      </svg>
+    </div>
+
+    <div class="audio-split-copy audio-split-copy-light">
+      <span class="audio-split-eyebrow">Smart Connectivity</span>
+      <h2 class="audio-split-headline">WOWCast.<br>No Cable, No Compromise.</h2>
+      <p class="audio-split-body">
+        Connect your LG soundbar to your LG TV wirelessly with WOWCast. AI Sound PRO analyzes content type in real time — movies, music, sports, voice — and optimizes the EQ automatically.
+      </p>
+      <a href="#soundbar-grid" class="audio-split-pill-outline">Learn More</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PRODUCT GRID — 4 Soundbar Models
+══════════════════════════════════════════ -->
+<section class="section section-alt" id="soundbar-grid">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">LG Soundbars</span>
+      <h2>The Complete Lineup</h2>
+      <p>From flagship Meridian Audio systems to entry-level cinematic sound — find the right soundbar for every room.</p>
+    </div>
+
+    <div class="product-grid-4" style="margin-top: var(--space-lg);">
+
+      <!-- Card 1: SC9S — flagship -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+            alt="LG Soundbar SC9S — flagship Meridian Audio, Dolby Atmos"
+            loading="lazy"
+          >
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Flagship</span>
+          <div class="lg-card-name">LG Soundbar SC9S</div>
+          <div class="lg-card-tagline">Meridian Audio, Dolby Atmos, WOWCast</div>
+          <div class="lg-card-stars">
+            ★★★★★ <span>4.8 (reviews)</span>
+          </div>
+          <span class="lg-card-buy">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 2: S90TY -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+            alt="LG Soundbar S90TY — 9.1.5ch Dolby Atmos Meridian"
+            loading="lazy"
+          >
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Premium</span>
+          <div class="lg-card-name">LG Soundbar S90TY</div>
+          <div class="lg-card-tagline">9.1.5ch, Dolby Atmos, Meridian</div>
+          <div class="lg-card-stars">
+            ★★★★½ <span>4.6 (reviews)</span>
+          </div>
+          <span class="lg-card-buy">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 3: S70TY -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+            alt="LG Soundbar S70TY — 3.1.1ch, Dolby Atmos, 400W"
+            loading="lazy"
+          >
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Mid-Range</span>
+          <div class="lg-card-name">LG Soundbar S70TY</div>
+          <div class="lg-card-tagline">3.1.1ch, Dolby Atmos, 400W</div>
+          <div class="lg-card-stars">
+            ★★★★ <span>4.4 (reviews)</span>
+          </div>
+          <span class="lg-card-buy">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 4: S20A — entry -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+            alt="LG Soundbar S20A — 2.1ch Bluetooth DTS Virtual:X"
+            loading="lazy"
+          >
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Entry</span>
+          <div class="lg-card-name">LG Soundbar S20A</div>
+          <div class="lg-card-tagline">2.1ch, Bluetooth, DTS Virtual:X</div>
+          <div class="lg-card-stars">
+            ★★★★ <span>4.2 (reviews)</span>
+          </div>
+          <span class="lg-card-buy">Add to Cart</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CROSS-SELL: "Built for LG. Better Together."
+     SC9S image in dark card with brand glow
+══════════════════════════════════════════ -->
+<section class="crosssell-section section" id="lg-tv-pairing">
+  <div class="crosssell-inner">
+
+    <div class="crosssell-copy">
+      <span class="eyebrow">Perfect Together</span>
+      <h2>Built for LG.<br>Better Together.</h2>
+      <p>
+        LG soundbars and LG TVs are engineered as a system — WOW Orchestra combines the TV's built-in speakers with the soundbar for unified, room-filling audio. WOWCast connects wirelessly in seconds.
+      </p>
+      <div class="crosssell-badges">
+        <span class="crosssell-badge">WOW Orchestra</span>
+        <span class="crosssell-badge">WOWCast Wireless</span>
+        <span class="crosssell-badge">AI Sound PRO</span>
+        <span class="crosssell-badge">One-Touch Setup</span>
+      </div>
+      <a href="tvs.html" class="audio-split-pill" style="text-decoration:none;">Shop LG TVs</a>
+    </div>
+
+    <div class="crosssell-visual">
+      <img
+        src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+        alt="LG SC9S Soundbar — pairs wirelessly with LG TVs via WOWCast"
+        loading="lazy"
+      >
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SPEC COMPARISON TABLE
+     4 soundbar models vs. key specs
+══════════════════════════════════════════ -->
+<section class="section section-alt" id="spec-compare">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">Technical Specifications</span>
+      <h2>Compare the Lineup</h2>
+      <p>Side-by-side specifications across all four LG soundbar models.</p>
+    </div>
+
+    <div class="spec-table-wrap" style="margin-top: var(--space-lg);">
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Specification</th>
+            <th>SC9S</th>
+            <th>S90TY</th>
+            <th>S70TY</th>
+            <th>S20A</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Channel Configuration</td>
+            <td>9.1.5ch</td>
+            <td>9.1.5ch</td>
+            <td>3.1.1ch</td>
+            <td>2.1ch</td>
+          </tr>
+          <tr>
+            <td>Total Output Power</td>
+            <td>570W</td>
+            <td>570W</td>
+            <td>400W</td>
+            <td>160W</td>
+          </tr>
+          <tr>
+            <td>Dolby Atmos</td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-dash">—</span></td>
+          </tr>
+          <tr>
+            <td>DTS:X</td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td>DTS Virtual:X</td>
+          </tr>
+          <tr>
+            <td>WOWCast Wireless</td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-dash">—</span></td>
+          </tr>
+          <tr>
+            <td>Meridian Audio</td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-dash">—</span></td>
+            <td><span class="spec-dash">—</span></td>
+          </tr>
+          <tr>
+            <td>Wireless Subwoofer</td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>AI Sound PRO</td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-check">&#10003;</span></td>
+            <td><span class="spec-dash">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     INDUSTRY / USE-CASE GRID — 6 Tiles
+══════════════════════════════════════════ -->
+<section class="section section-dark" id="audio-use-cases">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow" style="color: rgba(255,255,255,0.5);">Every Listening Scenario</span>
+      <h2 style="color: var(--white);">Sound Built for Every Moment</h2>
+      <p style="color: rgba(255,255,255,0.62);">LG soundbars are tuned to perform across every content type and use case — from late-night films to full-room party mode.</p>
+    </div>
+
+    <div class="audio-use-grid" style="margin-top: var(--space-lg);">
+
+      <div class="audio-use-tile audio-use-tile-cinema">
+        <div class="audio-use-tile-content">
+          <span class="audio-use-tile-icon" aria-hidden="true" style="font-size:1.5rem; margin-bottom:8px; display:block;">&#127916;</span>
+          <h4>Home Cinema</h4>
+          <p>Dolby Atmos overhead channels fill the room with directional soundstage — every blockbuster, theatre-grade.</p>
+          <span class="audio-use-pill">Dolby Atmos</span>
+        </div>
+      </div>
+
+      <div class="audio-use-tile audio-use-tile-music">
+        <div class="audio-use-tile-content">
+          <span class="audio-use-tile-icon" aria-hidden="true" style="font-size:1.5rem; margin-bottom:8px; display:block;">&#127925;</span>
+          <h4>Music Listening</h4>
+          <p>Meridian Audio co-engineering delivers Hi-Res Audio certification and studio-reference stereo imaging.</p>
+          <span class="audio-use-pill">Meridian Audio</span>
+        </div>
+      </div>
+
+      <div class="audio-use-tile audio-use-tile-sports">
+        <div class="audio-use-tile-content">
+          <span class="audio-use-tile-icon" aria-hidden="true" style="font-size:1.5rem; margin-bottom:8px; display:block;">&#9917;</span>
+          <h4>Sports</h4>
+          <p>AI Sound PRO detects live sports content and optimizes for crowd ambience and commentator clarity.</p>
+          <span class="audio-use-pill">AI Sound PRO</span>
+        </div>
+      </div>
+
+      <div class="audio-use-tile audio-use-tile-gaming">
+        <div class="audio-use-tile-content">
+          <span class="audio-use-tile-icon" aria-hidden="true" style="font-size:1.5rem; margin-bottom:8px; display:block;">&#127918;</span>
+          <h4>Gaming Audio</h4>
+          <p>Low-latency processing and DTS:X positional audio place every enemy footstep precisely in three-dimensional space.</p>
+          <span class="audio-use-pill">DTS:X</span>
+        </div>
+      </div>
+
+      <div class="audio-use-tile audio-use-tile-tv">
+        <div class="audio-use-tile-content">
+          <span class="audio-use-tile-icon" aria-hidden="true" style="font-size:1.5rem; margin-bottom:8px; display:block;">&#128250;</span>
+          <h4>TV Enhancement</h4>
+          <p>WOW Orchestra merges LG TV built-in speakers with your soundbar for room-filling unified coverage.</p>
+          <span class="audio-use-pill">WOW Orchestra</span>
+        </div>
+      </div>
+
+      <div class="audio-use-tile audio-use-tile-party">
+        <div class="audio-use-tile-content">
+          <span class="audio-use-tile-icon" aria-hidden="true" style="font-size:1.5rem; margin-bottom:8px; display:block;">&#127881;</span>
+          <h4>Party Mode</h4>
+          <p>Wireless multi-room expansion and party EQ presets transform your soundbar into the center of the room.</p>
+          <span class="audio-use-pill">Multi-Room</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CTA FOOTER BANNER
+══════════════════════════════════════════ -->
+<section class="audio-cta-banner section" id="audio-cta">
+  <h2>Shop LG Soundbars on Amazon</h2>
+  <p>Meridian Audio. Dolby Atmos. WOWCast wireless TV connection. Cinema sound — available on Amazon with Prime delivery.</p>
+  <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+    <a href="#soundbar-grid" class="btn-cta-white">Shop Soundbars</a>
+    <a href="tvs.html" class="btn-cta-white" style="background:transparent; color:var(--white); border: 2px solid rgba(255,255,255,0.55);">Shop LG TVs</a>
+  </div>
+</section>
+
+
+<div id="site-footer"></div>
+<script src="main.js"></script>
+</body>
+</html>
