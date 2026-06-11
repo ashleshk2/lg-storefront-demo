@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG Air Conditioners | Dual Inverter Split ACs | Amazon Brand Store</title>
+  <meta name="description" content="Shop LG Dual Inverter Air Conditioners on Amazon. Hot and cold, ThinQ Wi-Fi, up to 70% energy savings, 4-way swing. Stay cool and in control.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── AC Page Hero — split layout: image left, copy right ── */
+    .ac-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+      background: var(--brand-dark);
+    }
+    .ac-hero-media {
+      position: relative;
+      overflow: hidden;
+      background: var(--brand-dark);
+    }
+    .ac-hero-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(165,0,52,0.22) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .ac-hero-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
+    }
+    .ac-hero:hover .ac-hero-media img { transform: scale(1.03); }
+    .ac-hero-copy {
+      background: var(--brand-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px,6%,88px) clamp(32px,5%,72px);
+      position: relative;
+      overflow: hidden;
+    }
+    .ac-hero-copy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 60% at 80% 80%, rgba(165,0,52,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .ac-hero-copy > * { position: relative; z-index: 1; }
+    .ac-hero-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .ac-hero-title {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .ac-hero-title span { color: var(--brand-active); }
+    .ac-hero-sub {
+      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 440px;
+      margin-bottom: 38px;
+      line-height: 1.72;
+    }
+    .ac-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-ac-hero {
+      padding: 14px 34px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 22px rgba(165,0,52,0.4);
+    }
+    .btn-ac-hero:hover {
+      opacity: 0.88;
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+
+    /* ── Feature Icon Row (4-col dark) ── */
+    .ac-feature-row {
+      background: #111111;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .ac-feature-row-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4%, 64px);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .ac-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 30px 24px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.2s;
+    }
+    .ac-feat-item:last-child { border-right: none; }
+    .ac-feat-item:hover { background: rgba(255,255,255,0.03); }
+    .ac-feat-icon {
+      width: 48px; height: 48px;
+      border-radius: 8px;
+      background: rgba(165,0,52,0.18);
+      border: 1px solid rgba(165,0,52,0.3);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 14px rgba(165,0,52,0.12);
+    }
+    .ac-feat-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--brand-active);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ac-feat-text h4 {
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
+    }
+    .ac-feat-text p {
+      color: rgba(255,255,255,0.48);
+      font-size: 0.75rem;
+      line-height: 1.45;
+    }
+
+    /* ── Split sections (reuse index.html pattern) ── */
+    .lg-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .lg-split-media {
+      position: relative;
+      overflow: hidden;
+    }
+    .lg-split-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .lg-split:hover .lg-split-media img { transform: scale(1.03); }
+    .lg-split-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 6%, 80px) clamp(32px, 5%, 72px);
+    }
+    .lg-split-copy-dark {
+      background: var(--brand-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .lg-split-copy-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(165,0,52,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .lg-split-copy-dark > * { position: relative; z-index: 1; }
+    .lg-split-copy-light {
+      background: var(--white);
+    }
+    .lg-split-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .lg-split-copy-dark .lg-split-eyebrow { color: var(--brand-active); }
+    .lg-split-copy-light .lg-split-eyebrow { color: var(--primary); }
+    .lg-split-headline {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+    .lg-split-copy-dark .lg-split-headline { color: #fff; }
+    .lg-split-copy-light .lg-split-headline { color: var(--brand-dark); }
+    .lg-split-body {
+      font-size: 0.93rem;
+      line-height: 1.72;
+      margin-bottom: 32px;
+      max-width: 400px;
+    }
+    .lg-split-copy-dark .lg-split-body { color: rgba(255,255,255,0.68); }
+    .lg-split-copy-light .lg-split-body { color: var(--text-muted); }
+    .lg-split-pill {
+      display: inline-block;
+      background: var(--brand-active);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(165,0,52,0.3);
+      align-self: flex-start;
+    }
+    .lg-split-pill:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    .lg-split-pill-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 999px;
+      padding: 11px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .lg-split-pill-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Split media glow — product on dark bg */
+    .lg-split-media-dark {
+      background: var(--brand-dark);
+    }
+    .lg-split-media-dark::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 55% at 50% 60%, rgba(165,0,52,0.2) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .lg-split-media-dark img {
+      opacity: 0.92;
+    }
+
+    /* ── Product cards (hardened, no grey double-box) ── */
+    .lg-product-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.28s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.28s ease,
+                  border-color 0.22s ease;
+    }
+    .lg-product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(165,0,52,0.14);
+      border-color: rgba(165,0,52,0.2);
+    }
+    .lg-card-img {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+    }
+    .lg-card-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .lg-product-card:hover .lg-card-img img { transform: scale(1.05); }
+    .lg-card-body {
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .lg-card-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .lg-card-name {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 7px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+    .lg-card-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      line-height: 1.5;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .lg-card-stars {
+      font-size: 0.8rem;
+      color: #f59e0b;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .lg-card-stars span {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+    .lg-card-atc {
+      background: #FFD814;
+      color: #0F1111;
+      border: 1px solid #FCD200;
+      border-radius: 8px;
+      padding: 10px 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.18s, transform 0.14s ease;
+    }
+    .lg-card-atc:hover {
+      background: #F7CA00;
+      transform: scale(1.01);
+      text-decoration: none;
+    }
+    .best-seller-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    /* ── Product grid 4-col ── */
+    .product-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* ── ThinQ Ecosystem dark section ── */
+    .ac-thinq-section {
+      background: #000;
+      padding: 96px clamp(20px, 5%, 80px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ac-thinq-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 75% 55% at 50% 50%, rgba(165,0,52,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .ac-thinq-section > * { position: relative; z-index: 1; }
+    .ac-thinq-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-active);
+      margin-bottom: 22px;
+      display: block;
+    }
+    .ac-thinq-headline {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+    .ac-thinq-body {
+      font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+      color: rgba(255,255,255,0.62);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.78;
+    }
+    .ac-thinq-link {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+      padding: 13px 34px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(165,0,52,0.35);
+    }
+    .ac-thinq-link:hover {
+      opacity: 0.88;
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+
+    /* ── Use Case grid ── */
+    .use-case-section {
+      background: var(--brand-dark);
+      padding: var(--space-2xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .use-case-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(165,0,52,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .use-case-section .container { position: relative; z-index: 1; }
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-top: var(--space-lg);
+    }
+    .use-case-tile {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px 26px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                  background 0.22s ease,
+                  box-shadow 0.25s ease;
+      min-height: 160px;
+    }
+    .use-case-tile:hover {
+      transform: scale(1.04) translateY(-2px);
+      background: rgba(165,0,52,0.14);
+      box-shadow: 0 12px 36px rgba(165,0,52,0.2);
+      text-decoration: none;
+    }
+    .use-case-icon {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      line-height: 1;
+      filter: drop-shadow(0 0 6px rgba(165,0,52,0.4));
+    }
+    .use-case-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.82);
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ── CTA Footer Banner ── */
+    .lg-cta-banner {
+      background: linear-gradient(120deg, var(--primary) 0%, var(--brand-active) 50%, var(--primary-mid) 100%);
+      padding: 88px clamp(20px, 5%, 80px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      contain: layout;
+    }
+    .lg-cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -60%; left: -20%;
+      width: 140%; height: 220%;
+      background: radial-gradient(ellipse 55% 45% at 60% 55%, rgba(255,255,255,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .lg-cta-banner > * { position: relative; z-index: 1; }
+    .lg-cta-banner h2 {
+      color: #fff;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-bottom: 14px;
+      letter-spacing: -0.025em;
+    }
+    .lg-cta-banner p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .btn-cta-white {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #fff;
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .btn-cta-white:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+
+    /* ── Top Sellers section (light bg) ── */
+    .top-sellers-section {
+      background: var(--light-bg);
+      padding: var(--space-2xl) 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .ac-hero { grid-template-columns: 1fr; min-height: auto; }
+      .ac-hero-media { min-height: 320px; position: relative; }
+      .ac-hero-media img { position: absolute; }
+      .ac-hero-copy { padding: 48px 32px; }
+      .ac-feature-row-inner { grid-template-columns: repeat(2, 1fr); }
+      .ac-feat-item:nth-child(2) { border-right: none; }
+      .ac-feat-item:nth-child(1), .ac-feat-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .lg-split { grid-template-columns: 1fr; min-height: auto; }
+      .lg-split-media { min-height: 320px; position: relative; }
+      .lg-split-copy { padding: 48px 32px; }
+      .product-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .use-case-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .ac-hero-copy { padding: 36px 20px; }
+      .ac-feature-row-inner { grid-template-columns: 1fr; }
+      .ac-feat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .lg-split-copy { padding: 36px 20px; }
+      .product-grid-4 { grid-template-columns: 1fr 1fr; }
+      .use-case-grid { grid-template-columns: repeat(2, 1fr); }
+      .ac-thinq-section { padding: 64px 20px; }
+      .lg-cta-banner { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+
+<!-- ══════════════════════════════════════════
+     BREADCRUMB
+══════════════════════════════════════════ -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="#">Amazon</a>
+    <span aria-hidden="true">›</span>
+    <a href="#">Electronics</a>
+    <span aria-hidden="true">›</span>
+    <a href="index.html">LG</a>
+    <span aria-hidden="true">›</span>
+    <span style="color: var(--text);">Air Conditioners</span>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO — Split layout: AC image left, copy right (dark)
+══════════════════════════════════════════ -->
+<section class="ac-hero section" id="hero">
+
+  <!-- Image side (left) — only verified AC image -->
+  <div class="ac-hero-media">
+    <img
+      src="https://www.lg.com/np/images/home-air-conditioners/md07561293/Gallery/DZ-01.jpg"
+      alt="LG Dual Inverter wall-mounted air conditioner — white, horizontal form"
+      width="1600" height="1062"
+      fetchpriority="high">
+  </div>
+
+  <!-- Copy side (right, dark) -->
+  <div class="ac-hero-copy">
+    <span class="ac-hero-eyebrow">Available on Amazon — LG Air Conditioners</span>
+    <h1 class="ac-hero-title">
+      Stay Cool.<br><span>In Control.</span>
+    </h1>
+    <p class="ac-hero-sub">
+      LG Dual Inverter Air Conditioners. Save up to 70% energy. Heat and cool year-round
+      with ThinQ Wi-Fi control. One AC. All seasons.
+    </p>
+    <div class="ac-hero-ctas">
+      <a class="btn-ac-hero" href="#ac-products">Shop Air Conditioners</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURE ICON ROW — 4 AC pillars
+══════════════════════════════════════════ -->
+<div class="ac-feature-row" aria-label="Key features">
+  <div class="ac-feature-row-inner">
+
+    <div class="ac-feat-item">
+      <div class="ac-feat-icon" aria-hidden="true">
+        <!-- Dual inverter / energy bolt -->
+        <svg viewBox="0 0 24 24">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+      </div>
+      <div class="ac-feat-text">
+        <h4>Dual Inverter Compressor</h4>
+        <p>Up to 70% energy savings vs conventional</p>
+      </div>
+    </div>
+
+    <div class="ac-feat-item">
+      <div class="ac-feat-icon" aria-hidden="true">
+        <!-- Hot & cold / thermometer -->
+        <svg viewBox="0 0 24 24">
+          <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+        </svg>
+      </div>
+      <div class="ac-feat-text">
+        <h4>Hot &amp; Cold</h4>
+        <p>Year-round comfort in every season</p>
+      </div>
+    </div>
+
+    <div class="ac-feat-item">
+      <div class="ac-feat-icon" aria-hidden="true">
+        <!-- ThinQ Wi-Fi / phone icon -->
+        <svg viewBox="0 0 24 24">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+          <line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+      </div>
+      <div class="ac-feat-text">
+        <h4>ThinQ Wi-Fi</h4>
+        <p>Control from your phone, anywhere</p>
+      </div>
+    </div>
+
+    <div class="ac-feat-item">
+      <div class="ac-feat-icon" aria-hidden="true">
+        <!-- 4-way swing / crosshair / airflow -->
+        <svg viewBox="0 0 24 24">
+          <line x1="12" y1="2" x2="12" y2="22"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M8 8l4-4 4 4"/>
+          <path d="M8 16l4 4 4-4"/>
+          <path d="M16 8l4 4-4 4"/>
+          <path d="M8 8L4 12l4 4"/>
+        </svg>
+      </div>
+      <div class="ac-feat-text">
+        <h4>4-Way Swing</h4>
+        <p>Even airflow coverage across the room</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SPLIT SECTION 1 — image LEFT, dark copy RIGHT
+     "Up to 70% Energy Savings."
+══════════════════════════════════════════ -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Image left — AC product on dark background with glow -->
+    <div class="lg-split-media lg-split-media-dark">
+      <img
+        src="https://www.lg.com/np/images/home-air-conditioners/md07561293/Gallery/DZ-01.jpg"
+        alt="LG Dual Inverter AC — wall-mounted white unit"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+    <!-- Copy right — dark -->
+    <div class="lg-split-copy lg-split-copy-dark">
+      <span class="lg-split-eyebrow">Dual Inverter Compressor</span>
+      <h2 class="lg-split-headline">Up to 70%<br>Energy Savings.</h2>
+      <p class="lg-split-body">
+        LG's Dual Inverter Compressor runs at variable speeds to maintain comfortable
+        temperatures without the stop-start cycle of conventional ACs — delivering
+        dramatically lower energy bills and a 10-year compressor warranty.
+      </p>
+      <a class="lg-split-pill" href="#ac-products">Learn More</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SPLIT SECTION 2 — copy LEFT (light), image RIGHT
+     "Heat, Cool, Control. All Year Round."
+══════════════════════════════════════════ -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Copy left — light -->
+    <div class="lg-split-copy lg-split-copy-light">
+      <span class="lg-split-eyebrow">Hot &amp; Cold · ThinQ Wi-Fi</span>
+      <h2 class="lg-split-headline">Heat, Cool, Control.<br>All Year Round.</h2>
+      <p class="lg-split-body">
+        Hot &amp; Cold technology delivers both cooling and heating from a single unit.
+        ThinQ Wi-Fi lets you set schedules, monitor energy use, and control your AC
+        from anywhere on your phone.
+      </p>
+      <a class="lg-split-pill-outline" href="#ac-products">Shop Now</a>
+    </div>
+
+    <!-- Image right — AC unit -->
+    <div class="lg-split-media">
+      <img
+        src="https://www.lg.com/np/images/home-air-conditioners/md07561293/Gallery/DZ-01.jpg"
+        alt="LG wall-mount air conditioner — horizontal white form factor"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SPLIT SECTION 3 — image LEFT, dark copy RIGHT
+     "Engineered for Comfort. Designed for Life."
+══════════════════════════════════════════ -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Image left — AC with glow -->
+    <div class="lg-split-media lg-split-media-dark">
+      <img
+        src="https://www.lg.com/np/images/home-air-conditioners/md07561293/Gallery/DZ-01.jpg"
+        alt="LG Dual Inverter AC — front-facing on white background"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+    <!-- Copy right — dark -->
+    <div class="lg-split-copy lg-split-copy-dark">
+      <span class="lg-split-eyebrow">4-Way Swing · Quiet Inverter</span>
+      <h2 class="lg-split-headline">Engineered for Comfort.<br>Designed for Life.</h2>
+      <p class="lg-split-body">
+        The 4-way air swing distributes cool air evenly throughout the room.
+        Whisper-quiet inverter operation keeps ambient noise down while maintaining
+        precise temperature control, all day, every day.
+      </p>
+      <a class="lg-split-pill" href="#ac-products">View Specs</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TOP SELLERS / PRODUCT GRID
+     4 product cards — all use the 1 verified AC image
+══════════════════════════════════════════ -->
+<section class="top-sellers-section section section-fade" id="ac-products">
+  <div class="container">
+    <span class="section-eyebrow">LG AIR CONDITIONERS</span>
+    <h2 style="color: var(--brand-dark); margin-bottom: var(--space-lg);">Shop All AC Models on Amazon</h2>
+    <div class="product-grid-4">
+
+      <!-- Card 1: S3-W12JA3DA — ThinQ Wi-Fi + Hot & Cold -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">#1 Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/home-air-conditioners/md07561293/Gallery/DZ-01.jpg"
+            alt="LG Dual Inverter Hot & Cold Split AC 1.0 Ton S3-W12JA3DA"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Split AC · 1.0 Ton · S3-W12JA3DA</span>
+          <h3 class="lg-card-name">LG Dual Inverter Hot &amp; Cold AC 1.0T</h3>
+          <p class="lg-card-tagline">ThinQ Wi-Fi, Hot &amp; Cold, 4-Way Swing</p>
+          <div class="lg-card-stars" aria-label="4.5 out of 5 stars">
+            ★★★★½ <span>4.5</span>
+          </div>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 2: S3-W12JA3VA — Dual Inverter + 4-Way Swing -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/home-air-conditioners/md07561293/Gallery/DZ-01.jpg"
+            alt="LG Dual Inverter Hot & Cold Split AC 1.0 Ton S3-W12JA3VA"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Split AC · 1.0 Ton · S3-W12JA3VA</span>
+          <h3 class="lg-card-name">LG Dual Inverter Hot &amp; Cold AC 1.0T</h3>
+          <p class="lg-card-tagline">Dual Inverter, 4-Way Swing</p>
+          <div class="lg-card-stars" aria-label="4.3 out of 5 stars">
+            ★★★★ <span>4.3</span>
+          </div>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 3: 1.5T Dual Inverter -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/home-air-conditioners/md07561293/Gallery/DZ-01.jpg"
+            alt="LG Dual Inverter Split AC 1.5 Ton"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Split AC · 1.5 Ton</span>
+          <h3 class="lg-card-name">LG Dual Inverter Split AC 1.5T</h3>
+          <p class="lg-card-tagline">Up to 70% energy savings, Inverter Compressor</p>
+          <div class="lg-card-stars" aria-label="4.5 out of 5 stars">
+            ★★★★½ <span>4.5</span>
+          </div>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 4: ARTCOOL Gallery -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <img
+            src="https://www.lg.com/np/images/home-air-conditioners/md07561293/Gallery/DZ-01.jpg"
+            alt="LG ARTCOOL Gallery Air Conditioner"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">ARTCOOL · Premium Design</span>
+          <h3 class="lg-card-name">LG ARTCOOL Gallery AC</h3>
+          <p class="lg-card-tagline">Premium art-frame design, ThinQ Wi-Fi</p>
+          <div class="lg-card-stars" aria-label="4.7 out of 5 stars">
+            ★★★★★ <span>4.7</span>
+          </div>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     THINQ AI SMART HOME — full-width dark
+     Cross-sell to appliances.html
+══════════════════════════════════════════ -->
+<section class="ac-thinq-section section section-fade">
+  <span class="ac-thinq-eyebrow">LG ThinQ AI · Smart Home</span>
+  <h2 class="ac-thinq-headline">Your Home,<br>Climate-Controlled.</h2>
+  <p class="ac-thinq-body">
+    ThinQ AI learns your schedule and automatically adjusts temperature before you arrive.
+    Set weekly programs, monitor energy consumption in real time, and receive smart diagnosis
+    alerts — all from the LG ThinQ app. Connect your AC to the full LG ThinQ ecosystem
+    alongside your refrigerator, washer, and more.
+  </p>
+  <a class="ac-thinq-link" href="appliances.html">Explore LG Appliances</a>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     INDUSTRY / USE CASE GRID — 6 tiles
+══════════════════════════════════════════ -->
+<section class="use-case-section section section-fade">
+  <div class="container">
+    <span class="section-eyebrow" style="color: rgba(255,255,255,0.45);">WHERE LG AC FITS YOUR LIFE</span>
+    <h2 style="color: var(--white); margin-bottom: var(--space-lg);">Comfort for Every Room &amp; Every Season</h2>
+    <div class="use-case-grid">
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🛏️</span>
+        <span class="use-case-label">Bedroom Comfort</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🛋️</span>
+        <span class="use-case-label">Living Room</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">💻</span>
+        <span class="use-case-label">Home Office</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">☀️</span>
+        <span class="use-case-label">Hot Climates</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">❄️</span>
+        <span class="use-case-label">Cold Winters</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">⚡</span>
+        <span class="use-case-label">Energy Savings</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CTA FOOTER BANNER
+══════════════════════════════════════════ -->
+<section class="lg-cta-banner section section-fade">
+  <h2>Shop LG Air Conditioners on Amazon.</h2>
+  <p>
+    Dual Inverter, Hot &amp; Cold, ThinQ Wi-Fi — available now with Prime delivery.
+    Stay cool and in control with LG.
+  </p>
+  <a class="btn-cta-white" href="#ac-products">Shop Now</a>
+</section>
+
+
+<div id="site-footer"></div>
+<script src="main.js"></script>
+</body>
+</html>
