@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG UltraGear Gaming Monitors | 180Hz QHD | Amazon Brand Store</title>
+  <meta name="description" content="Shop LG UltraGear gaming monitors on Amazon. 27&quot; and 32&quot; QHD, 180Hz (OC 200Hz), 1ms GtG, G-Sync Compatible, HDR10. Zero compromise, pure performance.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Gaming Page Local Overrides ── */
+
+    /* CSS variables for this page's gaming palette */
+    :root {
+      --gaming-black:   #080808;
+      --gaming-dark:    #0e0e0e;
+      --gaming-panel:   #141414;
+      --gaming-card:    #1a1a1a;
+      --gaming-border:  rgba(253,49,46,0.18);
+      --gaming-red:     var(--brand-active);   /* #FD312E */
+      --gaming-red-dim: rgba(253,49,46,0.55);
+      --gaming-glow:    0 0 40px rgba(253,49,46,0.28), 0 0 80px rgba(253,49,46,0.12);
+      --gaming-glow-sm: 0 0 20px rgba(253,49,46,0.22);
+    }
+
+    /* ── Hero ── */
+    .gaming-hero {
+      position: relative;
+      width: 100%;
+      min-height: 680px;
+      background: var(--gaming-black);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Animated background: radial red glow + scan-lines */
+    .gaming-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 60% 50%, rgba(165,0,52,0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 80% 30%, rgba(253,49,46,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(80,0,20,0.3) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Scan-line overlay for gaming texture */
+    .gaming-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.08) 3px,
+        rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .gaming-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 130px clamp(20px, 5%, 72px) 100px;
+    }
+    .gaming-hero-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gaming-red);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .gaming-hero-title {
+      font-size: clamp(3rem, 6.5vw, 5.2rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      max-width: 680px;
+      text-shadow: 0 0 60px rgba(253,49,46,0.3);
+    }
+    .gaming-hero-title .accent {
+      color: var(--gaming-red);
+      display: block;
+    }
+    .gaming-hero-sub {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: rgba(255,255,255,0.68);
+      max-width: 520px;
+      margin-bottom: 44px;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+    .gaming-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-gaming-primary {
+      padding: 15px 38px;
+      background: var(--gaming-red);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(253,49,46,0.5);
+    }
+    .btn-gaming-primary:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+      box-shadow: 0 6px 36px rgba(253,49,46,0.65);
+      text-decoration: none;
+    }
+
+    /* ── Feature Icon Bar ── */
+    .gaming-feat-bar {
+      background: var(--gaming-panel);
+      border-top: 1px solid rgba(253,49,46,0.12);
+      border-bottom: 1px solid rgba(253,49,46,0.12);
+    }
+    .gaming-feat-bar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4%, 64px);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .gaming-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 30px 24px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s;
+    }
+    .gaming-feat-item:last-child { border-right: none; }
+    .gaming-feat-item:hover { background: rgba(253,49,46,0.04); }
+    .gaming-feat-icon {
+      width: 50px; height: 50px;
+      border-radius: 8px;
+      background: rgba(253,49,46,0.12);
+      border: 1px solid rgba(253,49,46,0.28);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(253,49,46,0.14);
+    }
+    .gaming-feat-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--gaming-red);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .gaming-feat-text h4 {
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
+    }
+    .gaming-feat-text p {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.74rem;
+      line-height: 1.45;
+    }
+
+    /* ── Split Sections ── */
+    .gaming-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .gaming-split-panel {
+      padding: 72px clamp(28px, 5%, 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .gaming-split-dark {
+      background: var(--gaming-black);
+      position: relative;
+      overflow: hidden;
+    }
+    .gaming-split-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 20% 50%, rgba(165,0,52,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .gaming-split-dark .gaming-split-panel { position: relative; z-index: 1; }
+    .gaming-split-light {
+      background: #f5f5f5;
+    }
+    .gaming-split-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .gaming-split-dark .gaming-split-eyebrow { color: var(--gaming-red); }
+    .gaming-split-light .gaming-split-eyebrow { color: var(--primary); }
+    .gaming-split-dark h2 {
+      color: #fff;
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+      line-height: 1.05;
+      text-shadow: 0 0 40px rgba(253,49,46,0.25);
+    }
+    .gaming-split-light h2 {
+      color: var(--brand-dark);
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+      line-height: 1.05;
+    }
+    .gaming-split-dark p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 440px;
+    }
+    .gaming-split-light p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 440px;
+    }
+
+    /* Spec list in splits */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    .spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .gaming-split-light .spec-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .spec-table tr:last-child { border-bottom: none; }
+    .spec-table td {
+      padding: 10px 0;
+      font-size: 0.85rem;
+      vertical-align: top;
+    }
+    .spec-table td:first-child {
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      width: 42%;
+      padding-right: 16px;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+    .spec-table td:last-child { color: #fff; font-weight: 500; }
+    .gaming-split-light .spec-table td:first-child { color: var(--text-muted); }
+    .gaming-split-light .spec-table td:last-child { color: var(--brand-dark); }
+
+    /* CSS screen-glow mock display */
+    .screen-mock-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      background: var(--gaming-black);
+      position: relative;
+      overflow: hidden;
+    }
+    .screen-mock-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(253,49,46,0.15) 0%, transparent 65%);
+    }
+    .screen-mock {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+      border: 2px solid rgba(253,49,46,0.4);
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0005 40%, #0d0005 100%);
+      box-shadow:
+        0 0 0 1px rgba(253,49,46,0.08),
+        0 0 40px rgba(253,49,46,0.35),
+        0 0 80px rgba(253,49,46,0.15),
+        inset 0 0 60px rgba(253,49,46,0.08);
+      overflow: hidden;
+    }
+    .screen-mock::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(253,49,46,0.18) 0%, transparent 55%),
+        repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(253,49,46,0.03) 4px, rgba(253,49,46,0.03) 5px);
+    }
+    .screen-mock-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .screen-mock-stat {
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--gaming-red);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      text-shadow: 0 0 24px rgba(253,49,46,0.7);
+    }
+    .screen-mock-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    /* Monitor stand legs */
+    .screen-stand {
+      width: 100%;
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0;
+    }
+    .screen-neck {
+      width: 6px;
+      height: 32px;
+      background: linear-gradient(180deg, rgba(253,49,46,0.4), rgba(80,0,20,0.6));
+      border-radius: 0 0 2px 2px;
+    }
+    .screen-base {
+      width: 120px;
+      height: 8px;
+      background: linear-gradient(90deg, transparent, rgba(253,49,46,0.25) 30%, rgba(253,49,46,0.25) 70%, transparent);
+      border-radius: 0 0 4px 4px;
+    }
+
+    /* ── Product Cards (dark, text-only) ── */
+    .gaming-cards-section {
+      background: var(--gaming-dark);
+      padding: var(--space-2xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .gaming-cards-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(165,0,52,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .gaming-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: var(--space-lg);
+    }
+    .gaming-prod-card {
+      background: var(--gaming-panel);
+      border: 1px solid var(--gaming-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.25s ease;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+    }
+    .gaming-prod-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--gaming-glow), 0 20px 48px rgba(0,0,0,0.5);
+      border-color: rgba(253,49,46,0.45);
+    }
+    .gaming-prod-visual {
+      background: var(--gaming-black);
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .gaming-prod-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(253,49,46,0.1) 0%, transparent 65%);
+    }
+    .gaming-prod-icon {
+      position: relative;
+      z-index: 1;
+      width: 80px;
+      height: 80px;
+      background: rgba(253,49,46,0.1);
+      border: 1px solid rgba(253,49,46,0.25);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 28px rgba(253,49,46,0.2);
+    }
+    .gaming-prod-icon svg {
+      width: 40px;
+      height: 40px;
+      fill: none;
+      stroke: var(--gaming-red);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .gaming-prod-body {
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .gaming-prod-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gaming-red);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .gaming-prod-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .gaming-prod-sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .gaming-prod-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .gaming-prod-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--gaming-red);
+      background: rgba(253,49,46,0.1);
+      border: 1px solid rgba(253,49,46,0.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+    .gaming-prod-atc {
+      background: #FFD814;
+      color: #0F1111;
+      border: 1px solid #FCD200;
+      border-radius: 8px;
+      padding: 11px 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .gaming-prod-atc:hover {
+      background: #F7CA00;
+      transform: scale(1.01);
+    }
+
+    /* ── Cross-Sell TV Section ── */
+    .gaming-tv-section {
+      background: var(--gaming-black);
+      padding: var(--space-2xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .gaming-tv-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 70% 50%, rgba(165,0,52,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .gaming-tv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .gaming-tv-img-wrap {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6), 0 0 40px rgba(253,49,46,0.12);
+    }
+    .gaming-tv-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+    }
+    .gaming-tv-content { position: relative; z-index: 1; }
+    .gaming-tv-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gaming-red);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .gaming-tv-content h2 {
+      color: #fff;
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+      line-height: 1.05;
+    }
+    .gaming-tv-content p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 440px;
+    }
+    .btn-gaming-tv {
+      padding: 14px 34px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(165,0,52,0.4);
+    }
+    .btn-gaming-tv:hover {
+      opacity: 0.88;
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+
+    /* ── Comparison Table ── */
+    .gaming-compare-section {
+      background: var(--gaming-dark);
+      padding: var(--space-2xl) 0;
+    }
+    .compare-table-wrap {
+      overflow-x: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+      margin-top: var(--space-lg);
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--gaming-panel);
+    }
+    .compare-table th {
+      padding: 18px 24px;
+      text-align: left;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      background: #0a0a0a;
+      border-bottom: 1px solid rgba(253,49,46,0.2);
+      white-space: nowrap;
+    }
+    .compare-table th:first-child { color: #fff; font-size: 0.85rem; }
+    .compare-table th.highlight-col { color: var(--gaming-red); }
+    .compare-table td {
+      padding: 14px 24px;
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: middle;
+    }
+    .compare-table td:first-child {
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:hover td { background: rgba(253,49,46,0.03); }
+    .compare-val-highlight {
+      color: #fff;
+      font-weight: 700;
+    }
+    .compare-badge {
+      display: inline-block;
+      background: rgba(253,49,46,0.15);
+      color: var(--gaming-red);
+      border: 1px solid rgba(253,49,46,0.25);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+
+    /* ── Industry / Use Grid ── */
+    .gaming-use-section {
+      background: var(--gaming-black);
+      padding: var(--space-2xl) 0;
+    }
+    .gaming-use-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: var(--space-lg);
+    }
+    .gaming-use-tile {
+      background: var(--gaming-panel);
+      border: 1px solid var(--gaming-border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+    .gaming-use-tile:hover {
+      transform: scale(1.02) translateY(-2px);
+      box-shadow: var(--gaming-glow-sm), 0 12px 32px rgba(0,0,0,0.4);
+      border-color: rgba(253,49,46,0.38);
+    }
+    .gaming-use-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      background: rgba(253,49,46,0.1);
+      border: 1px solid rgba(253,49,46,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .gaming-use-icon svg {
+      width: 26px; height: 26px;
+      fill: none;
+      stroke: var(--gaming-red);
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .gaming-use-tile h4 {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .gaming-use-tile p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    /* ── CTA Banner ── */
+    .gaming-cta-banner {
+      background: linear-gradient(120deg, #0a0000 0%, #1a0005 35%, #3a0010 65%, #1a0005 100%);
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      contain: layout;
+    }
+    .gaming-cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(253,49,46,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .gaming-cta-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 4px,
+        rgba(0,0,0,0.06) 4px, rgba(0,0,0,0.06) 5px
+      );
+      pointer-events: none;
+    }
+    .gaming-cta-banner > * { position: relative; z-index: 1; }
+    .gaming-cta-banner h2 {
+      color: #fff;
+      font-size: clamp(2rem, 3.5vw, 2.875rem);
+      margin-bottom: 16px;
+      letter-spacing: -0.025em;
+      text-shadow: 0 0 48px rgba(253,49,46,0.35);
+    }
+    .gaming-cta-banner p {
+      color: rgba(255,255,255,0.68);
+      font-size: 1.05rem;
+      margin-bottom: 36px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+
+    /* ── Section headings (dark context) ── */
+    .gaming-section-title { text-align: center; margin-bottom: var(--space-lg); }
+    .gaming-section-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gaming-red);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .gaming-section-title h2 {
+      color: #fff;
+      font-size: clamp(1.9rem, 3vw, 2.625rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .gaming-section-title p {
+      color: rgba(255,255,255,0.58);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── Mobile responsive overrides ── */
+    @media (max-width: 900px) {
+      .gaming-split { grid-template-columns: 1fr; }
+      .gaming-split-dark { order: 1; }
+      .gaming-split-dark .screen-mock-wrap { display: none; }
+      .gaming-tv-grid { grid-template-columns: 1fr; gap: 40px; }
+      .gaming-cards-grid { grid-template-columns: 1fr; }
+      .gaming-use-grid { grid-template-columns: repeat(2, 1fr); }
+      .gaming-feat-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .gaming-feat-item:nth-child(2) { border-right: none; }
+      .gaming-feat-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.06); }
+    }
+    @media (max-width: 600px) {
+      .gaming-hero { min-height: 540px; }
+      .gaming-hero-content { padding: 80px 20px 64px; }
+      .gaming-use-grid { grid-template-columns: 1fr; }
+      .gaming-feat-bar-inner { grid-template-columns: 1fr; }
+      .gaming-feat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .gaming-feat-item:last-child { border-bottom: none; }
+      .gaming-cards-grid { grid-template-columns: 1fr; }
+      .gaming-cta-banner { padding: 72px 20px; }
+      .gaming-split-panel { padding: 48px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER (loaded by main.js)
+  ══════════════════════════════════════════════ -->
+  <div id="site-header"></div>
+
+  <!-- ══════════════════════════════════════════════
+       1. BREADCRUMB
+  ══════════════════════════════════════════════ -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="#">Amazon</a>
+      <span>›</span>
+      <a href="#">Electronics</a>
+      <span>›</span>
+      <a href="index.html">LG</a>
+      <span>›</span>
+      <span>Gaming</span>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════
+       2. HERO — Pure CSS, dark gaming atmosphere
+  ══════════════════════════════════════════════ -->
+  <section class="gaming-hero" aria-label="Gaming hero">
+    <div class="gaming-hero-content section-fade">
+      <span class="gaming-hero-eyebrow">LG UltraGear — Available on Amazon</span>
+      <h1 class="gaming-hero-title">
+        Zero Compromise.
+        <span class="accent">Pure Performance.</span>
+      </h1>
+      <p class="gaming-hero-sub">LG UltraGear gaming monitors. Built for competitive play — 180Hz, 1ms, QHD, G-Sync Compatible.</p>
+      <div class="gaming-hero-ctas">
+        <a href="#gaming-products" class="btn-gaming-primary">Shop UltraGear</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       3. FEATURE ICON ROW — 4 gaming spec pillars
+  ══════════════════════════════════════════════ -->
+  <div class="gaming-feat-bar" aria-label="Gaming specs">
+    <div class="gaming-feat-bar-inner">
+
+      <!-- 180Hz -->
+      <div class="gaming-feat-item section-fade">
+        <div class="gaming-feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="gaming-feat-text">
+          <h4>180Hz Refresh Rate</h4>
+          <p>Overclocks to 200Hz</p>
+        </div>
+      </div>
+
+      <!-- 1ms -->
+      <div class="gaming-feat-item section-fade section-fade-delay-1">
+        <div class="gaming-feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <div class="gaming-feat-text">
+          <h4>1ms GtG Response</h4>
+          <p>No blur, no ghosting</p>
+        </div>
+      </div>
+
+      <!-- QHD Nano IPS -->
+      <div class="gaming-feat-item section-fade section-fade-delay-2">
+        <div class="gaming-feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="gaming-feat-text">
+          <h4>QHD Nano IPS</h4>
+          <p>2560×1440 sharp detail</p>
+        </div>
+      </div>
+
+      <!-- G-Sync -->
+      <div class="gaming-feat-item section-fade section-fade-delay-3">
+        <div class="gaming-feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="gaming-feat-text">
+          <h4>G-Sync Compatible</h4>
+          <p>Also FreeSync Premium</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       4. SPLIT SECTION 1 — Built for Victory (dark)
+       Left: specs text  |  Right: CSS screen mock
+  ══════════════════════════════════════════════ -->
+  <section class="section section-dark gaming-split-dark" aria-label="27GS75Q-B specification detail">
+    <div class="gaming-split">
+
+      <!-- Left: text + specs -->
+      <div class="gaming-split-panel">
+        <span class="gaming-split-eyebrow">UltraGear 27GS75Q-B</span>
+        <h2>Built for Victory.</h2>
+        <p>The 27" UltraGear is the weapon of choice for competitive FPS players. Every spec is tuned to give you the edge: raw refresh rate, instant response, and buttery-smooth VRR from day one.</p>
+        <table class="spec-table" aria-label="27GS75Q-B specifications">
+          <tbody>
+            <tr><td>Panel Size</td><td>27" QHD IPS</td></tr>
+            <tr><td>Resolution</td><td>2560 × 1440</td></tr>
+            <tr><td>Refresh Rate</td><td>180Hz (OC 200Hz)</td></tr>
+            <tr><td>Response Time</td><td>1ms GtG</td></tr>
+            <tr><td>Panel Type</td><td>IPS</td></tr>
+            <tr><td>HDR</td><td>HDR10</td></tr>
+            <tr><td>Sync</td><td>G-Sync Compatible / FreeSync Premium</td></tr>
+            <tr><td>Ergonomics</td><td>Tilt + Height Adjust</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Right: CSS screen glow mock -->
+      <div class="screen-mock-wrap">
+        <div>
+          <div class="screen-mock" role="img" aria-label="Simulated UltraGear display with red ambient glow">
+            <div class="screen-mock-content">
+              <span class="screen-mock-stat">180Hz</span>
+              <span class="screen-mock-label">Refresh Rate — OC 200Hz</span>
+            </div>
+          </div>
+          <div class="screen-stand">
+            <div class="screen-neck"></div>
+            <div class="screen-base"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       5. SPLIT SECTION 2 — Nano IPS (light)
+       Left: CSS display mock  |  Right: specs text
+  ══════════════════════════════════════════════ -->
+  <section class="section gaming-split-light" aria-label="32GS85Q-B specification detail">
+    <div class="gaming-split">
+
+      <!-- Left: spec table panel (light background) -->
+      <div class="gaming-split-panel gaming-split-light">
+        <span class="gaming-split-eyebrow">UltraGear 32GS85Q-B</span>
+        <h2>Nano IPS. Engineered for Every Frame.</h2>
+        <p>The 32" UltraGear uses LG's Nano IPS technology for wider color gamut, faster response, and consistent color accuracy even at extreme viewing angles. 1ms GtG at 180Hz — every action frame, every time.</p>
+        <table class="spec-table" aria-label="32GS85Q-B specifications">
+          <tbody>
+            <tr><td>Panel Size</td><td>32" QHD Nano IPS</td></tr>
+            <tr><td>Resolution</td><td>2560 × 1440</td></tr>
+            <tr><td>Aspect Ratio</td><td>16:9</td></tr>
+            <tr><td>Refresh Rate</td><td>180Hz</td></tr>
+            <tr><td>Response Time</td><td>1ms GtG</td></tr>
+            <tr><td>Panel Type</td><td>Nano IPS</td></tr>
+            <tr><td>HDR</td><td>HDR10</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Right: accent spec callout card (dark) -->
+      <div class="screen-mock-wrap" style="background: var(--gaming-panel); border-left: 1px solid rgba(0,0,0,0.08);">
+        <div>
+          <div class="screen-mock" style="max-width: 460px; background: linear-gradient(135deg, #0a0a0a 0%, #150005 50%, #0a0005 100%); box-shadow: 0 0 40px rgba(165,0,52,0.3), 0 0 80px rgba(165,0,52,0.12); border-color: rgba(165,0,52,0.35);" role="img" aria-label="Simulated 32-inch Nano IPS display">
+            <div class="screen-mock-content">
+              <span class="screen-mock-stat" style="font-size: clamp(2rem, 4vw, 3rem);">32"</span>
+              <span class="screen-mock-label">Nano IPS — Wider Color Gamut</span>
+            </div>
+          </div>
+          <div class="screen-stand">
+            <div class="screen-neck"></div>
+            <div class="screen-base"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       6. PRODUCT CARDS — 2 UltraGear monitors
+  ══════════════════════════════════════════════ -->
+  <section id="gaming-products" class="gaming-cards-section section" aria-label="UltraGear product cards">
+    <div class="container" style="position: relative; z-index: 1;">
+
+      <div class="gaming-section-title section-fade">
+        <span class="gaming-section-eyebrow">Shop UltraGear</span>
+        <h2>Your Next Gaming Monitor</h2>
+        <p>Two sizes. Same uncompromising performance. Available on Amazon.</p>
+      </div>
+
+      <div class="gaming-cards-grid">
+
+        <!-- Card 1: 27GS75Q-B -->
+        <div class="gaming-prod-card section-fade">
+          <div class="gaming-prod-visual">
+            <!-- No img tag — CSS only. SVG game-controller icon -->
+            <div class="gaming-prod-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <!-- gamepad icon -->
+                <rect x="2" y="7" width="20" height="14" rx="4" ry="4"/>
+                <line x1="7" y1="12" x2="7" y2="16"/>
+                <line x1="5" y1="14" x2="9" y2="14"/>
+                <circle cx="17" cy="12" r="1" fill="currentColor" stroke="none" style="fill: var(--gaming-red);"/>
+                <circle cx="15" cy="14" r="1" fill="currentColor" stroke="none" style="fill: var(--gaming-red);"/>
+                <circle cx="9" cy="5" width="2" height="2"/>
+                <line x1="6" y1="5" x2="18" y2="5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="gaming-prod-body">
+            <span class="gaming-prod-eyebrow">LG UltraGear — 27GS75Q-B</span>
+            <div class="gaming-prod-name">LG UltraGear 27" QHD IPS Gaming Monitor</div>
+            <div class="gaming-prod-sub">Competitive-grade 27" QHD display with 180Hz refresh rate (OC 200Hz), 1ms GtG response, and G-Sync Compatible sync. Tilt and height adjustable stand.</div>
+            <div class="gaming-prod-tags">
+              <span class="gaming-prod-tag">180Hz (OC 200Hz)</span>
+              <span class="gaming-prod-tag">1ms GtG</span>
+              <span class="gaming-prod-tag">G-Sync Compatible</span>
+              <span class="gaming-prod-tag">HDR10</span>
+            </div>
+            <span class="gaming-prod-atc">Add to Cart</span>
+          </div>
+        </div>
+
+        <!-- Card 2: 32GS85Q-B -->
+        <div class="gaming-prod-card section-fade section-fade-delay-1">
+          <div class="gaming-prod-visual">
+            <div class="gaming-prod-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="14" rx="4" ry="4"/>
+                <line x1="7" y1="12" x2="7" y2="16"/>
+                <line x1="5" y1="14" x2="9" y2="14"/>
+                <circle cx="17" cy="12" r="1" fill="currentColor" stroke="none" style="fill: var(--gaming-red);"/>
+                <circle cx="15" cy="14" r="1" fill="currentColor" stroke="none" style="fill: var(--gaming-red);"/>
+                <line x1="6" y1="5" x2="18" y2="5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="gaming-prod-body">
+            <span class="gaming-prod-eyebrow">LG UltraGear — 32GS85Q-B</span>
+            <div class="gaming-prod-name">LG UltraGear 32" QHD Nano IPS Gaming Monitor</div>
+            <div class="gaming-prod-sub">Premium 32" Nano IPS panel with wider color gamut, 180Hz refresh, and 1ms GtG response. HDR10 support and superior color accuracy from any viewing angle.</div>
+            <div class="gaming-prod-tags">
+              <span class="gaming-prod-tag">180Hz Nano IPS</span>
+              <span class="gaming-prod-tag">1ms GtG</span>
+              <span class="gaming-prod-tag">32" QHD</span>
+              <span class="gaming-prod-tag">HDR10</span>
+            </div>
+            <span class="gaming-prod-atc">Add to Cart</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       7. GAMING TVs CROSS-SELL — OLED C5 at TV scale
+          Only img tag on this page (QNED80 verified image)
+  ══════════════════════════════════════════════ -->
+  <section class="gaming-tv-section section" aria-label="Gaming OLED TVs cross-sell">
+    <div class="container" style="position: relative; z-index: 1;">
+
+      <div class="gaming-tv-grid section-fade">
+
+        <!-- TV image — only img tag on this page (gate-passed) -->
+        <div class="gaming-tv-img-wrap">
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG QNED80 4K Smart TV — 3/4 angle view on white background showing vivid color display"
+            width="1600"
+            height="1062"
+            loading="lazy"
+          >
+        </div>
+
+        <!-- Copy -->
+        <div class="gaming-tv-content">
+          <span class="gaming-tv-eyebrow">Gaming TVs</span>
+          <h2>OLED C5: Your 77" Gaming Monitor.</h2>
+          <p>LG OLED evo AI TV C5 with 144Hz Gaming Mode, G-Sync Compatible, and VRR makes the world's best gaming display — now at TV scale. Alpha 9 Gen8 AI. Dolby Vision Gaming. Every pixel, true black. Every frame, perfectly timed.</p>
+          <a href="tvs.html" class="btn-gaming-tv">Shop Gaming TVs</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       8. SPEC COMPARISON TABLE
+  ══════════════════════════════════════════════ -->
+  <section class="gaming-compare-section section" aria-label="UltraGear monitor comparison">
+    <div class="container">
+
+      <div class="gaming-section-title section-fade">
+        <span class="gaming-section-eyebrow">Compare UltraGear</span>
+        <h2>Side by Side</h2>
+        <p>Both monitors share the same core spec DNA — choose your size.</p>
+      </div>
+
+      <div class="compare-table-wrap section-fade">
+        <table class="compare-table" aria-label="Comparison of 27GS75Q-B and 32GS85Q-B">
+          <thead>
+            <tr>
+              <th scope="col">Specification</th>
+              <th scope="col" class="highlight-col">27GS75Q-B</th>
+              <th scope="col" class="highlight-col">32GS85Q-B</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Model</td>
+              <td><span class="compare-val-highlight">LG UltraGear 27GS75Q-B</span></td>
+              <td><span class="compare-val-highlight">LG UltraGear 32GS85Q-B</span></td>
+            </tr>
+            <tr>
+              <td>Size</td>
+              <td><span class="compare-val-highlight">27"</span></td>
+              <td><span class="compare-val-highlight">32"</span></td>
+            </tr>
+            <tr>
+              <td>Resolution</td>
+              <td>2560 × 1440 (QHD)</td>
+              <td>2560 × 1440 (QHD)</td>
+            </tr>
+            <tr>
+              <td>Refresh Rate</td>
+              <td><span class="compare-val-highlight">180Hz (OC 200Hz)</span></td>
+              <td>180Hz</td>
+            </tr>
+            <tr>
+              <td>Response Time</td>
+              <td>1ms GtG</td>
+              <td>1ms GtG</td>
+            </tr>
+            <tr>
+              <td>Panel Type</td>
+              <td>IPS</td>
+              <td><span class="compare-val-highlight">Nano IPS <span class="compare-badge">Wider Color</span></span></td>
+            </tr>
+            <tr>
+              <td>HDR</td>
+              <td>HDR10</td>
+              <td>HDR10</td>
+            </tr>
+            <tr>
+              <td>Sync Technology</td>
+              <td>G-Sync Compatible / FreeSync Premium</td>
+              <td>G-Sync Compatible</td>
+            </tr>
+            <tr>
+              <td>Ports</td>
+              <td>HDMI, DisplayPort, USB Hub</td>
+              <td>HDMI, DisplayPort, USB Hub</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       9. INDUSTRY / USE GRID — 6 tiles
+  ══════════════════════════════════════════════ -->
+  <section class="gaming-use-section section" aria-label="Gaming use cases">
+    <div class="container">
+
+      <div class="gaming-section-title section-fade">
+        <span class="gaming-section-eyebrow">Built For</span>
+        <h2>Every Way You Play</h2>
+        <p>UltraGear is engineered for the demands of every gaming discipline.</p>
+      </div>
+
+      <div class="gaming-use-grid">
+
+        <!-- Competitive FPS -->
+        <div class="gaming-use-tile section-fade">
+          <div class="gaming-use-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="22" y1="12" x2="18" y2="12"/>
+              <line x1="6" y1="12" x2="2" y2="12"/>
+              <line x1="12" y1="6" x2="12" y2="2"/>
+              <line x1="12" y1="22" x2="12" y2="18"/>
+            </svg>
+          </div>
+          <h4>Competitive FPS</h4>
+          <p>180Hz and 1ms GtG eliminate motion blur in fast-twitch shooters. Every frame arrives before the enemy moves.</p>
+        </div>
+
+        <!-- Esports -->
+        <div class="gaming-use-tile section-fade section-fade-delay-1">
+          <div class="gaming-use-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/>
+              <line x1="13" y1="6" x2="19" y2="12"/>
+              <line x1="6" y1="13" x2="12" y2="19"/>
+              <line x1="16" y1="17" x2="17" y2="21"/>
+              <line x1="21" y1="16" x2="17" y2="21"/>
+              <line x1="7" y1="7" x2="3" y2="3"/>
+            </svg>
+          </div>
+          <h4>Esports</h4>
+          <p>QHD precision at high frame rates gives tournament-level clarity. See more, react faster, dominate the bracket.</p>
+        </div>
+
+        <!-- Content Creation -->
+        <div class="gaming-use-tile section-fade section-fade-delay-2">
+          <div class="gaming-use-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
+          <h4>Content Creation</h4>
+          <p>Nano IPS delivers wider color gamut and accurate hues for video editing, color grading, and streaming production.</p>
+        </div>
+
+        <!-- Streaming -->
+        <div class="gaming-use-tile section-fade section-fade-delay-3">
+          <div class="gaming-use-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="2"/>
+              <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/>
+            </svg>
+          </div>
+          <h4>Streaming</h4>
+          <p>High-refresh QHD visuals make your stream look native 1440p. Viewers see the difference. G-Sync keeps it smooth on your side.</p>
+        </div>
+
+        <!-- Console Gaming -->
+        <div class="gaming-use-tile section-fade">
+          <div class="gaming-use-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="7" width="20" height="14" rx="4" ry="4"/>
+              <line x1="7" y1="12" x2="7" y2="16"/>
+              <line x1="5" y1="14" x2="9" y2="14"/>
+              <circle cx="17" cy="12" r="1" style="fill: none;"/>
+              <circle cx="15" cy="14" r="1" style="fill: none;"/>
+            </svg>
+          </div>
+          <h4>Console Gaming</h4>
+          <p>FreeSync Premium ensures tear-free gameplay on PS5 and Xbox Series X. QHD detail brings open worlds to life at 27" or 32".</p>
+        </div>
+
+        <!-- Home Office -->
+        <div class="gaming-use-tile section-fade section-fade-delay-1">
+          <div class="gaming-use-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h4>Home Office</h4>
+          <p>QHD resolution gives 78% more pixels than 1080p — more screen real estate for multitasking, spreadsheets, and code.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       10. CTA FOOTER BANNER
+  ══════════════════════════════════════════════ -->
+  <section class="gaming-cta-banner" aria-label="Shop UltraGear call to action">
+    <span class="gaming-section-eyebrow" style="margin-bottom: 12px;">Available on Amazon</span>
+    <h2>Shop UltraGear Gaming Monitors</h2>
+    <p>Zero compromise. Pure performance. Two sizes — 27" and 32" QHD. Both with 180Hz, 1ms GtG, and G-Sync Compatible.</p>
+    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="#gaming-products" class="btn-gaming-primary">Shop UltraGear</a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       11. FOOTER (loaded by main.js)
+  ══════════════════════════════════════════════ -->
+  <div id="site-footer"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
