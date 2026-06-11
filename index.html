@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG | Amazon Brand Store</title>
+  <meta name="description" content="Shop LG TVs, Home Appliances, Air Conditioners, Gaming Monitors and Audio on Amazon. Life's Good with LG.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Hero: YouTube iframe full-bleed background ── */
+    .lg-hero {
+      position: relative;
+      width: 100%;
+      min-height: 680px;
+      background: var(--brand-dark);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lg-hero-video-frame {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .lg-hero-video-frame iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /* 16:9 covering the container — scale up to avoid letterboxing */
+      width: 177.8vh;   /* 16/9 * 100vh */
+      height: 100vh;
+      min-width: 100%;
+      min-height: 56.25vw; /* 9/16 * 100vw */
+      transform: translate(-50%, -50%);
+      border: none;
+      opacity: 0.38;
+    }
+    .lg-hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        110deg,
+        rgba(26,26,26,0.96) 0%,
+        rgba(26,26,26,0.78) 38%,
+        rgba(165,0,52,0.12) 72%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+    .lg-hero-overlay::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 140px;
+      background: linear-gradient(0deg, var(--brand-dark) 0%, transparent 100%);
+    }
+    .lg-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1280px;
+      padding: 0 clamp(20px, 5%, 72px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .lg-hero-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .lg-hero-title {
+      font-size: clamp(3.2rem, 7vw, 5.5rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .lg-hero-title span {
+      color: var(--brand-active);
+      display: block;
+    }
+    .lg-hero-sub {
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      color: rgba(255,255,255,0.72);
+      max-width: 480px;
+      margin-bottom: 44px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+    .lg-hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-lg-hero {
+      padding: 15px 36px;
+      background: var(--brand-active);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 24px rgba(253,49,46,0.42);
+    }
+    .btn-lg-hero:hover {
+      opacity: 0.88;
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+    .btn-lg-outline {
+      padding: 15px 36px;
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      border-radius: 999px;
+      border: 1.5px solid rgba(255,255,255,0.32);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-lg-outline:hover {
+      border-color: rgba(255,255,255,0.65);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* ── Feature Icon Row ── */
+    .lg-feature-row {
+      background: #111111;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .lg-feature-row-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4%, 64px);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .lg-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 28px 24px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.2s;
+    }
+    .lg-feat-item:last-child { border-right: none; }
+    .lg-feat-item:hover { background: rgba(255,255,255,0.03); }
+    .lg-feat-icon {
+      width: 48px; height: 48px;
+      border-radius: 8px;
+      background: rgba(165,0,52,0.18);
+      border: 1px solid rgba(165,0,52,0.3);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 14px rgba(165,0,52,0.12);
+    }
+    .lg-feat-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--brand-active);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .lg-feat-text h4 {
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
+    }
+    .lg-feat-text p {
+      color: rgba(255,255,255,0.48);
+      font-size: 0.75rem;
+      line-height: 1.45;
+    }
+
+    /* ── Category Tiles ── */
+    .cat-section {
+      background: var(--brand-warm-grey);
+      padding: var(--space-2xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cat-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(165,0,52,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cat-section .container { position: relative; z-index: 1; }
+    .cat-tiles-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: var(--space-lg);
+    }
+    .cat-tile-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease;
+    }
+    .cat-tile-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(165,0,52,0.14);
+      text-decoration: none;
+    }
+    .cat-tile-media {
+      background: var(--light-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .cat-tile-img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .cat-tile-card:hover .cat-tile-img { transform: scale(1.04); }
+    /* Gaming placeholder tile */
+    .cat-tile-gaming {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a0008 60%, #2a000e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 4/3;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cat-tile-gaming-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 10px rgba(253,49,46,0.7));
+    }
+    .cat-tile-gaming-label-inner {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+    .cat-tile-label {
+      display: block;
+      padding: 11px 14px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* ── Featured Split Sections ── */
+    .lg-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .lg-split-media {
+      position: relative;
+      overflow: hidden;
+    }
+    .lg-split-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .lg-split:hover .lg-split-media img { transform: scale(1.03); }
+    .lg-split-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 6%, 80px) clamp(32px, 5%, 72px);
+    }
+    /* Dark copy side */
+    .lg-split-copy-dark {
+      background: var(--brand-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .lg-split-copy-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(165,0,52,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .lg-split-copy-dark > * { position: relative; z-index: 1; }
+    /* Light copy side */
+    .lg-split-copy-light {
+      background: var(--white);
+    }
+    .lg-split-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .lg-split-copy-dark .lg-split-eyebrow { color: var(--brand-active); }
+    .lg-split-copy-light .lg-split-eyebrow { color: var(--primary); }
+    .lg-split-headline {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+    .lg-split-copy-dark .lg-split-headline { color: #fff; }
+    .lg-split-copy-light .lg-split-headline { color: var(--brand-dark); }
+    .lg-split-body {
+      font-size: 0.93rem;
+      line-height: 1.72;
+      margin-bottom: 32px;
+      max-width: 400px;
+    }
+    .lg-split-copy-dark .lg-split-body { color: rgba(255,255,255,0.68); }
+    .lg-split-copy-light .lg-split-body { color: var(--text-muted); }
+    .lg-split-pill {
+      display: inline-block;
+      background: var(--brand-active);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(253,49,46,0.32);
+      align-self: flex-start;
+    }
+    .lg-split-pill:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    .lg-split-pill-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 999px;
+      padding: 11px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .lg-split-pill-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* ── Top Sellers ── */
+    .top-sellers-section {
+      background: var(--light-bg);
+      padding: var(--space-2xl) 0;
+    }
+
+    /* Product cards — hardened CSS, no grey double-box */
+    .lg-product-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.28s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.28s ease,
+                  border-color 0.22s ease;
+    }
+    .lg-product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(165,0,52,0.14);
+      border-color: rgba(165,0,52,0.2);
+    }
+    .lg-card-img {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+      /* Never display:flex — keep position:relative + overflow:hidden only */
+    }
+    .lg-card-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      /* Never object-fit:contain, never padding */
+      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .lg-product-card:hover .lg-card-img img { transform: scale(1.05); }
+    .lg-card-body {
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .lg-card-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .lg-card-name {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 7px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+    .lg-card-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .lg-card-atc {
+      background: #FFD814;
+      color: #0F1111;
+      border: 1px solid #FCD200;
+      border-radius: 8px;
+      padding: 10px 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.18s, transform 0.14s ease;
+    }
+    .lg-card-atc:hover {
+      background: #F7CA00;
+      transform: scale(1.01);
+      text-decoration: none;
+    }
+    .best-seller-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    /* ── Brand Statement (full-width dark) ── */
+    .lg-brand-statement {
+      background: #000;
+      padding: 100px clamp(20px, 5%, 80px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .lg-brand-statement::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(165,0,52,0.16) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .lg-brand-statement > * { position: relative; z-index: 1; }
+    .lg-brand-statement .bs-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-active);
+      margin-bottom: 24px;
+      display: block;
+    }
+    .lg-brand-statement .bs-quote {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .lg-brand-statement .bs-body {
+      font-size: clamp(1rem, 1.4vw, 1.12rem);
+      color: rgba(255,255,255,0.6);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── Use Case / Industry Grid ── */
+    .use-case-section {
+      background: var(--brand-dark);
+      padding: var(--space-2xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .use-case-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(165,0,52,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .use-case-section .container { position: relative; z-index: 1; }
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-top: var(--space-lg);
+    }
+    .use-case-tile {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px 26px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                  background 0.22s ease,
+                  box-shadow 0.25s ease;
+      min-height: 160px;
+    }
+    .use-case-tile:hover {
+      transform: scale(1.04) translateY(-2px);
+      background: rgba(165,0,52,0.14);
+      box-shadow: 0 12px 36px rgba(165,0,52,0.2);
+      text-decoration: none;
+    }
+    .use-case-icon {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      line-height: 1;
+      filter: drop-shadow(0 0 6px rgba(165,0,52,0.4));
+    }
+    .use-case-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.82);
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ── CTA Footer Banner ── */
+    .lg-cta-banner {
+      background: linear-gradient(120deg, var(--primary) 0%, var(--brand-active) 50%, var(--primary-mid) 100%);
+      padding: 88px clamp(20px, 5%, 80px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      contain: layout;
+    }
+    .lg-cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -60%; left: -20%;
+      width: 140%; height: 220%;
+      background: radial-gradient(ellipse 55% 45% at 60% 55%, rgba(255,255,255,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .lg-cta-banner > * { position: relative; z-index: 1; }
+    .lg-cta-banner h2 {
+      color: #fff;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-bottom: 14px;
+      letter-spacing: -0.025em;
+    }
+    .lg-cta-banner p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .btn-cta-white {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #fff;
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .btn-cta-white:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .cat-tiles-grid { grid-template-columns: repeat(3, 1fr); }
+      .use-case-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .lg-hero { min-height: 560px; }
+      .lg-feature-row-inner { grid-template-columns: repeat(2, 1fr); }
+      .lg-feat-item:nth-child(2) { border-right: none; }
+      .lg-feat-item:nth-child(1), .lg-feat-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .lg-split { grid-template-columns: 1fr; min-height: auto; }
+      .lg-split-media { min-height: 320px; position: relative; }
+      .lg-split-media img { position: absolute; }
+      .lg-split-copy { padding: 48px 32px; }
+      .cat-tiles-grid { grid-template-columns: repeat(2, 1fr); }
+      .use-case-grid { grid-template-columns: repeat(2, 1fr); }
+      .product-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .lg-hero { min-height: 480px; }
+      .lg-feature-row-inner { grid-template-columns: 1fr; }
+      .lg-feat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .cat-tiles-grid { grid-template-columns: repeat(2, 1fr); }
+      .use-case-grid { grid-template-columns: repeat(2, 1fr); }
+      .product-grid-4 { grid-template-columns: 1fr 1fr; }
+      .lg-split-copy { padding: 36px 20px; }
+      .lg-brand-statement { padding: 72px 20px; }
+      .lg-cta-banner { padding: 64px 20px; }
+    }
+    /* 4-col product grid utility */
+    .product-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+
+<!-- ══════════════════════════════════════════
+     BREADCRUMB
+══════════════════════════════════════════ -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="#">Amazon</a>
+    <span aria-hidden="true">›</span>
+    <a href="#">Electronics</a>
+    <span aria-hidden="true">›</span>
+    <span style="color: var(--text);">LG</span>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO — YouTube video background
+     Video: "Less Artificial, More Human" (keOxJ1vlc5E)
+══════════════════════════════════════════ -->
+<section class="lg-hero section" id="hero">
+  <div class="lg-hero-video-frame" aria-hidden="true">
+    <iframe
+      src="https://www.youtube.com/embed/keOxJ1vlc5E?autoplay=1&mute=1&loop=1&playlist=keOxJ1vlc5E&controls=0&showinfo=0&rel=0&playsinline=1"
+      allow="autoplay; encrypted-media"
+      title="LG brand film background"
+      tabindex="-1"
+      aria-hidden="true">
+    </iframe>
+  </div>
+  <div class="lg-hero-overlay" aria-hidden="true"></div>
+  <div class="lg-hero-content">
+    <span class="lg-hero-eyebrow">Available on Amazon</span>
+    <h1 class="lg-hero-title">
+      Life's Good.
+      <span>Less Artificial.<br>More Human.</span>
+    </h1>
+    <p class="lg-hero-sub">
+      LG Affectionate Intelligence — TVs, appliances, air conditioners,
+      and audio that learn, connect, and respond. One ecosystem, every room.
+    </p>
+    <div class="lg-hero-ctas">
+      <a class="btn-lg-hero" href="#shop-category">Shop LG</a>
+      <a class="btn-lg-outline" href="tvs.html">Explore TVs</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURE ICON ROW — 4 brand pillars
+══════════════════════════════════════════ -->
+<div class="lg-feature-row">
+  <div class="lg-feature-row-inner">
+
+    <div class="lg-feat-item">
+      <div class="lg-feat-icon" aria-hidden="true">
+        <!-- TV / display icon -->
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </div>
+      <div class="lg-feat-text">
+        <h4>World's No.1 OLED TV</h4>
+        <p>12 consecutive years — Omdia 2013–2024</p>
+      </div>
+    </div>
+
+    <div class="lg-feat-item">
+      <div class="lg-feat-icon" aria-hidden="true">
+        <!-- Smart home / network icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div class="lg-feat-text">
+        <h4>ThinQ AI Ecosystem</h4>
+        <p>Your whole home, intelligently connected</p>
+      </div>
+    </div>
+
+    <div class="lg-feat-item">
+      <div class="lg-feat-icon" aria-hidden="true">
+        <!-- Washing machine / motor icon -->
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="4"/>
+          <line x1="12" y1="2" x2="12" y2="4"/>
+          <line x1="12" y1="20" x2="12" y2="22"/>
+          <line x1="2" y1="12" x2="4" y2="12"/>
+          <line x1="20" y1="12" x2="22" y2="12"/>
+        </svg>
+      </div>
+      <div class="lg-feat-text">
+        <h4>AI Direct Drive</h4>
+        <p>Learns your laundry, selects the perfect wash</p>
+      </div>
+    </div>
+
+    <div class="lg-feat-item">
+      <div class="lg-feat-icon" aria-hidden="true">
+        <!-- AC / snowflake icon -->
+        <svg viewBox="0 0 24 24">
+          <line x1="12" y1="2" x2="12" y2="22"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M8 8l4-4 4 4"/>
+          <path d="M8 16l4 4 4-4"/>
+          <path d="M16 8l4 4-4 4"/>
+          <path d="M8 8L4 12l4 4"/>
+        </svg>
+      </div>
+      <div class="lg-feat-text">
+        <h4>Dual Inverter Tech</h4>
+        <p>Up to 70% energy savings vs. conventional AC</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CATEGORY TILES — 5 categories
+══════════════════════════════════════════ -->
+<section class="cat-section section section-fade" id="shop-category">
+  <div class="container">
+    <span class="section-eyebrow">SHOP BY CATEGORY</span>
+    <h2 style="color: var(--brand-dark); margin-bottom: var(--space-lg);">The Full LG Lineup on Amazon</h2>
+    <div class="cat-tiles-grid">
+
+      <a class="cat-tile-card" href="tvs.html">
+        <div class="cat-tile-media">
+          <img class="cat-tile-img"
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG QNED TV on white background"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <span class="cat-tile-label">TVs</span>
+      </a>
+
+      <a class="cat-tile-card" href="appliances.html">
+        <div class="cat-tile-media">
+          <img class="cat-tile-img"
+            src="https://www.lg.com/np/images/refrigerators/md07562290/gallery/DZ-1.jpg"
+            alt="LG Side-by-Side Refrigerator in Platinum Silver"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <span class="cat-tile-label">Appliances</span>
+      </a>
+
+      <!-- Gaming — no clean monitor image available per scraper report. CSS tile. -->
+      <a class="cat-tile-card" href="gaming.html">
+        <div class="cat-tile-gaming">
+          <span class="cat-tile-gaming-icon" aria-hidden="true">⚡</span>
+          <span class="cat-tile-gaming-label-inner">UltraGear Gaming</span>
+        </div>
+        <span class="cat-tile-label">Gaming</span>
+      </a>
+
+      <a class="cat-tile-card" href="air-conditioners.html">
+        <div class="cat-tile-media">
+          <img class="cat-tile-img"
+            src="https://www.lg.com/np/images/home-air-conditioners/md07561293/Gallery/DZ-01.jpg"
+            alt="LG Dual Inverter Wall Air Conditioner"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <span class="cat-tile-label">Air Conditioners</span>
+      </a>
+
+      <a class="cat-tile-card" href="audio.html">
+        <div class="cat-tile-media">
+          <img class="cat-tile-img"
+            src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+            alt="LG Soundbar SC9S with wireless subwoofer"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <span class="cat-tile-label">Audio</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURED SPLIT SECTION 1 — image LEFT, copy RIGHT (dark)
+     "The Original OLED. Eleven Years Running."
+══════════════════════════════════════════ -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Image: QNED80 TV -->
+    <div class="lg-split-media">
+      <img
+        src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+        alt="LG QNED80 4K Smart TV — abstract art on screen"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+    <!-- Copy: dark side -->
+    <div class="lg-split-copy lg-split-copy-dark">
+      <span class="lg-split-eyebrow">LG OLED · World's No.1</span>
+      <h2 class="lg-split-headline">The Original OLED.<br>Eleven Years Running.</h2>
+      <p class="lg-split-body">
+        Alpha 9 Gen8 AI Processor. 100% Color Fidelity. Dolby Vision IQ.
+        The world's #1 OLED for 12 consecutive years — every pixel self-lit,
+        every black perfect, no backlight, no compromise.
+      </p>
+      <a class="lg-split-pill" href="tvs.html">Explore TVs</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURED SPLIT SECTION 2 — copy LEFT (light), image RIGHT
+     "Your Home, Intelligently Connected."
+══════════════════════════════════════════ -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Copy: light side (left) -->
+    <div class="lg-split-copy lg-split-copy-light">
+      <span class="lg-split-eyebrow">ThinQ AI Ecosystem</span>
+      <h2 class="lg-split-headline">Your Home,<br>Intelligently Connected.</h2>
+      <p class="lg-split-body">
+        ThinQ AI connects your refrigerator, washer, and AC into one smart home
+        ecosystem. Your fridge knows your groceries. Your washer finishes before
+        you're home. Life's Good when everything works together.
+      </p>
+      <a class="lg-split-pill-outline" href="appliances.html">Shop Appliances</a>
+    </div>
+
+    <!-- Image: InstaView Fridge -->
+    <div class="lg-split-media">
+      <img
+        src="https://www.lg.com/np/images/refrigerators/md07573319/gallery/DZ1.jpg"
+        alt="LG InstaView Door-in-Door 617L refrigerator in Noble Steel"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FEATURED SPLIT SECTION 3 — image LEFT, copy RIGHT (dark)
+     "Two Washers in One."
+══════════════════════════════════════════ -->
+<section class="section section-fade" style="padding: 0;">
+  <div class="lg-split">
+
+    <!-- Image: WashTower -->
+    <div class="lg-split-media">
+      <img
+        src="https://www.lg.com/np/images/washing-machines/md07573359/gallery/DZ-01.jpg"
+        alt="LG WashTower 21/16kg — sage green and cream two-tone"
+        loading="lazy" width="1600" height="1062">
+    </div>
+
+    <!-- Copy: dark side -->
+    <div class="lg-split-copy lg-split-copy-dark">
+      <span class="lg-split-eyebrow">LG WashTower · AI Direct Drive</span>
+      <h2 class="lg-split-headline">Two Washers<br>in One.</h2>
+      <p class="lg-split-body">
+        The LG WashTower with AI Direct Drive learns your laundry habits
+        and selects the optimal wash motion. 21kg wash, 16kg dry —
+        all in one tower, center control, zero complexity.
+      </p>
+      <a class="lg-split-pill" href="appliances.html">See WashTower</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TOP SELLERS — 4 product cards
+══════════════════════════════════════════ -->
+<section class="top-sellers-section section section-fade" id="best-sellers">
+  <div class="container">
+    <span class="section-eyebrow">TOP SELLERS</span>
+    <h2 style="color: var(--brand-dark); margin-bottom: var(--space-lg);">Best on Amazon This Season</h2>
+    <div class="product-grid-4">
+
+      <!-- Card 1: LG OLED evo AI TV C5 (represented by QNED80 image — only verified TV image) -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">#1 Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/tvs/md07608114/galleryy/large02.jpg"
+            alt="LG OLED evo AI TV C5 4K"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">OLED · 4K · 2025</span>
+          <h3 class="lg-card-name">LG OLED evo AI TV C5</h3>
+          <p class="lg-card-tagline">World's No.1 OLED for 12 Years</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 2: LG InstaView Door-in-Door Refrigerator 617L -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/refrigerators/md07573319/gallery/DZ1.jpg"
+            alt="LG InstaView Door-in-Door 617L refrigerator"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Refrigerator · 617L</span>
+          <h3 class="lg-card-name">LG InstaView Door-in-Door</h3>
+          <p class="lg-card-tagline">See without opening</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 3: LG WashTower 21/16kg AI DD -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/washing-machines/md07573359/gallery/DZ-01.jpg"
+            alt="LG WashTower 21/16kg AI Direct Drive"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">WashTower · AI DD</span>
+          <h3 class="lg-card-name">LG WashTower 21/16kg AI DD</h3>
+          <p class="lg-card-tagline">Two washers in one</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+      <!-- Card 4: LG Soundbar SC9S -->
+      <div class="lg-product-card">
+        <div class="lg-card-img">
+          <span class="best-seller-badge" aria-label="Best Seller">Best Seller</span>
+          <img
+            src="https://www.lg.com/np/images/home-audio/md07608106/gallery/Z01_large01.jpg"
+            alt="LG Soundbar SC9S with wireless subwoofer"
+            loading="lazy" width="1600" height="1062">
+        </div>
+        <div class="lg-card-body">
+          <span class="lg-card-eyebrow">Soundbar · Dolby Atmos</span>
+          <h3 class="lg-card-name">LG Soundbar SC9S</h3>
+          <p class="lg-card-tagline">Meridian Audio + Dolby Atmos</p>
+          <span class="lg-card-atc">Add to Cart</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     BRAND STATEMENT — full-width dark
+     "Less Artificial. More Human."
+══════════════════════════════════════════ -->
+<section class="lg-brand-statement section section-fade">
+  <span class="bs-eyebrow">LG Affectionate Intelligence</span>
+  <p class="bs-quote">&ldquo;Less Artificial.<br>More Human.&rdquo;</p>
+  <p class="bs-body">
+    LG Affectionate Intelligence — technology that listens, learns, and responds
+    like a thoughtful partner. Not reactive. Not mechanical. Warmly intelligent.
+  </p>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     INDUSTRY / USE CASE GRID — 6 tiles
+══════════════════════════════════════════ -->
+<section class="use-case-section section section-fade">
+  <div class="container">
+    <span class="section-eyebrow" style="color: rgba(255,255,255,0.45);">LIFE'S GOOD ACROSS EVERY ROOM</span>
+    <h2 style="color: #fff; margin-bottom: var(--space-lg);">How LG Fits Your Life</h2>
+    <div class="use-case-grid">
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🏠</span>
+        <span class="use-case-label">Smart Home</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🎬</span>
+        <span class="use-case-label">Entertainment</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🎮</span>
+        <span class="use-case-label">Gaming</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">🍽️</span>
+        <span class="use-case-label">Kitchen</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">👕</span>
+        <span class="use-case-label">Laundry</span>
+      </div>
+
+      <div class="use-case-tile">
+        <span class="use-case-icon" aria-hidden="true">❄️</span>
+        <span class="use-case-label">Cooling</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CTA FOOTER BANNER
+══════════════════════════════════════════ -->
+<section class="lg-cta-banner section-fade">
+  <h2>Discover the Full LG Lineup on Amazon.</h2>
+  <p>
+    TVs, refrigerators, washers, air conditioners, and audio — all available
+    with Prime delivery. Life's Good starts here.
+  </p>
+  <a class="btn-cta-white" href="#shop-category">Shop Now</a>
+</section>
+
+
+<div id="site-footer"></div>
+<script src="main.js"></script>
+</body>
+</html>
