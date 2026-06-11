@@ -265,6 +265,8 @@
       padding-right: 16px;
       font-size: 0.8rem;
       letter-spacing: 0.02em;
+      border-left: 3px solid var(--brand-active);
+      padding-left: 12px;
     }
     .spec-table td:last-child { color: #fff; font-weight: 500; }
     .gaming-split-light .spec-table td:first-child { color: var(--text-muted); }
@@ -610,6 +612,8 @@
       font-size: 0.8rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      border-left: 3px solid var(--brand-active);
+      padding-left: 20px;
     }
     .compare-table tr:last-child td { border-bottom: none; }
     .compare-table tr:hover td { background: rgba(253,49,46,0.03); }
@@ -780,6 +784,54 @@
       .gaming-cta-banner { padding: 72px 20px; }
       .gaming-split-panel { padding: 48px 20px; }
     }
+
+    /* ── Gaming Elevation: animated dark BG gradient ── */
+    @keyframes gaming-drift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .gaming-compare-section,
+    .gaming-products-section {
+      background: linear-gradient(
+        135deg,
+        #080808 0%,
+        #100004 30%,
+        #0e0e0e 60%,
+        #120005 100%
+      );
+      background-size: 200% 200%;
+      animation: gaming-drift 20s ease infinite;
+    }
+
+    /* Screen mock scan-line on hover */
+    .screen-mock-wrap {
+      position: relative;
+    }
+    .screen-mock-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(253,49,46,0.04) 2px,
+        rgba(253,49,46,0.04) 4px
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 10;
+    }
+    .screen-mock-wrap:hover::after { opacity: 1; }
+
+    /* First-column accent for compare table header too */
+    .compare-table th:first-child {
+      border-left: 3px solid var(--brand-active);
+      padding-left: 20px;
+    }
   </style>
 </head>
 <body>
@@ -817,6 +869,11 @@
       <p class="gaming-hero-sub">LG UltraGear gaming monitors. Built for competitive play — 180Hz, 1ms, QHD, G-Sync Compatible.</p>
       <div class="gaming-hero-ctas">
         <a href="#gaming-products" class="btn-gaming-primary">Shop UltraGear</a>
+      </div>
+      <!-- Floating glass stat chip -->
+      <div class="hero-glass-card" aria-label="Gaming monitor spec stat" style="margin-top: 32px;">
+        <span class="hero-glass-card-label">Refresh Rate</span>
+        <span class="hero-glass-card-value"><em>180Hz</em> QHD &mdash; OC 200Hz</span>
       </div>
     </div>
   </section>

@@ -89,16 +89,23 @@ function initScrollReveal() {
     '.cta-banner',
     '.trust-strip',
     '.feature-strip',
+    '.lg-spotlight',
+    '.lg-feature-row',
+    '.tv-feature-row',
   ];
 
   // Individual card / tile stagger
   const staggerTargets = [
-    { selector: '.hk-card',       delayStep: 80 },
-    { selector: '.cat-tile',      delayStep: 70 },
-    { selector: '.split-tile',    delayStep: 100 },
-    { selector: '.industry-tile', delayStep: 80 },
-    { selector: '.stat-item',     delayStep: 80 },
-    { selector: '.trust-item',    delayStep: 60 },
+    { selector: '.hk-card',         delayStep: 80 },
+    { selector: '.cat-tile',        delayStep: 70 },
+    { selector: '.split-tile',      delayStep: 100 },
+    { selector: '.industry-tile',   delayStep: 80 },
+    { selector: '.stat-item',       delayStep: 80 },
+    { selector: '.trust-item',      delayStep: 60 },
+    { selector: '.lg-product-card', delayStep: 60 },
+    { selector: '.cat-tile-card',   delayStep: 70 },
+    { selector: '.use-case-tile',   delayStep: 55 },
+    { selector: '.tv-lineup-tile',  delayStep: 70 },
   ];
 
   // Apply .section-fade to top-level reveal targets
@@ -180,6 +187,51 @@ function initHeroParallax() {
   }, { passive: true });
 }
 
+/* Sub-nav scrolled shadow
+   ============================================================ */
+function initSubnavScroll() {
+  var subnav = document.querySelector('.brand-subnav');
+  if (!subnav) return;
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        if (window.scrollY > 40) {
+          subnav.classList.add('scrolled');
+        } else {
+          subnav.classList.remove('scrolled');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* Split section slide-in
+   ============================================================ */
+function initSplitSlideIn() {
+  // LG split sections: left side slides from left, right side from right
+  document.querySelectorAll('.lg-split').forEach(function(split) {
+    var children = split.children;
+    if (children.length >= 2) {
+      children[0].classList.add('split-slide-left');
+      children[1].classList.add('split-slide-right');
+    }
+  });
+  document.querySelectorAll('.tv-split').forEach(function(split) {
+    var children = split.children;
+    if (children.length >= 2) {
+      children[0].classList.add('split-slide-left');
+      children[1].classList.add('split-slide-right');
+    }
+  });
+  // Observe these for the IntersectionObserver added after initScrollReveal
+  document.querySelectorAll('.split-slide-left, .split-slide-right').forEach(function(el) {
+    el.classList.add('section-fade-split');
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   // Mark JS as active so CSS scroll-reveal rules engage
   document.documentElement.classList.add('js-ready');
@@ -187,4 +239,20 @@ document.addEventListener('DOMContentLoaded', function() {
   initScrollReveal();
   initStatCounters();
   initHeroParallax();
+  initSubnavScroll();
+  initSplitSlideIn();
+  // Second observer pass for split slide-ins (after they get their classes)
+  setTimeout(function() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px 60px 0px' });
+    document.querySelectorAll('.split-slide-left, .split-slide-right').forEach(function(el) {
+      observer.observe(el);
+    });
+  }, 100);
 });
